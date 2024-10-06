@@ -68,6 +68,8 @@ class Cell {
             x: 0,
             y: 0,
             r: 20,
+            receptorCooldown: 0.1,
+            rcCd: 3,
             a: 0,
             da: (Math.random() * 0.4) * math.rnds(),
             dx: 10,
@@ -96,7 +98,13 @@ class Cell {
         else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
         if (this.y < R && this.dy < 0) this.dy *= -1
         else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
-        
+        this.rcCd -= dt;
+        if (this.rcCd <= 0) {
+            this.rcCd = this.receptorCooldown;
+            let {dx, dy} = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, this.x, this.y);
+            this.dx = dx * (20 + 20 * rnd())
+            this.dy = dy * (20 + 20 * rnd())
+        }
     }
 
     draw() {
