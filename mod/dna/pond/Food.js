@@ -9,6 +9,15 @@ class Food {
             dx:0,
             dy:0,
         }, st)
+
+        this.solids = [
+            new dna.pond.SolidCircle({
+                __: this,
+                x: 0,
+                y: 0,
+                r: 3,
+            })
+        ]
     }
 
     init() {

@@ -99,6 +99,9 @@ class Cell {
 
     init() {}
 
+    collideWith(trg) {
+    }
+
     evo(dt) {
         this.a += this.da * dt
         const R = this.r
