@@ -48,8 +48,10 @@ class SmellMap {
         }
     }
 
-
-
+    getSmell(map, x, y){
+        let [gridX, gridY] = this._toGrid(x, y);
+        return map[gridY][gridX];
+    }
     // execute function for each elemen in map in radius
 
 

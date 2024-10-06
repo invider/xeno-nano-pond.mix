@@ -69,7 +69,13 @@ class Cell {
         rotate(this.a);
         image(this.descriptor.img, - this.w / 2, - this.h / 2, this.w, this.h);
         lineWidth(2)
-        stroke('#40A0CE')
+        let foodSmell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y)
+        if (foodSmell > 1){
+            foodSmell = 1
+        } 
+        let color = Math.floor(foodSmell * 255)
+        stroke('#' + color.toString(16) + 'FFFF')
+        //stroke('#40A0CE')
         circle(0, 0, this.r)
         restore();
     }
