@@ -2,7 +2,7 @@ const cellTypes = {
     'froggy': {
         img: res.cell.froggy,
         lifespan: 10,
-        team: 2,
+        team: 1,
         cellType: 'froggy',
         centers: [
             {
@@ -15,7 +15,7 @@ const cellTypes = {
     'jelly': {
         img: res.cell.jelly,
         lifespan: 40,
-        team: 1,
+        team: 2,
         cellType: 'jelly',
         centers: [
             {
@@ -29,7 +29,7 @@ const cellTypes = {
         img: res.cell.orangy,
         lifespan: 20,
         cellType: 'orange',
-        team: 2,
+        team: 3,
         centers: [
             {
                 x: 0,
@@ -42,7 +42,7 @@ const cellTypes = {
         img: res.cell.swampy,
         lifespan: 15,
         cellType: 'swampy',
-        team: 1,
+        team: 4,
         centers: [
             {
                 x: 0,
@@ -54,7 +54,7 @@ const cellTypes = {
     'brownie': {
         img: res.cell.brownie,
         lifespan: 30,
-        team: 3,
+        team: 5,
         cellType: 'brownie',
         centers: [
             {
@@ -87,8 +87,10 @@ class Cell {
             da: (Math.random() * 0.4) * math.rnds(),
             dx: 10,
             dy: 10,
+            damage: 30,
             descriptor: math.rnde(cellTypes)
         }, st)
+        this.team = this.descriptor.team
         this.descriptor.lifespan = this.descriptor.lifespan || 20
         this.lifespan = this.descriptor.lifespan;
         this.baseHp = this.baseHp || this.hp;
@@ -124,13 +126,14 @@ class Cell {
         if (trg instanceof dna.pond.Food) {
             this.eat(trg)
         } else if (trg instanceof dna.pond.Cell) {
-            if (false && this.team !== trg.team) {
+            if (this.team !== trg.team) {
                 console.log("Enemy detected: ", trg)
-                //this.eat(trg)
-            } else {
-                this.dx = this.x - trg.x
-                this.dy = this.y - trg.y
-            }
+                this.hp -= Math.min(trg.damage, trg.hp);
+            } 
+
+            this.dx = this.x - trg.x
+            this.dy = this.y - trg.y
+        
             if (Math.abs(this.x - trg.x) <= 1 && Math.abs(this.y - trg.y) <= 1) {
                 this.x = trg.x - (1 + 3 * math.rnd()) * math.rnds();
                 this.y = trg.y - (1 + 3 * math.rnd()) * math.rnds();
@@ -194,12 +197,20 @@ class Cell {
         this.lifespan -= dt
         if (this.lifespan <= 0) {
             kill(this)
-            lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y, cellType: this.descriptor.cellType})
+            this._spawnFood();
         }
         // this.hp += 1 * dt;
         if (this.hp > this.baseHp * this.hpThreshold) {
             this.mitosis()
         }
+        if (this.hp <= 0) {
+            kill(this)
+            this._spawnFood();
+        }
+    }
+
+    _spawnFood() {
+        lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y, cellType: this.descriptor.cellType})
     }
 
     _normalizeD(d){
