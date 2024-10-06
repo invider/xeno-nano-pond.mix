@@ -13,7 +13,7 @@ const style = {
         },
         debug: {
             family: 'pixel-operator-8',
-            size: 16,
+            size: 20,
         },
     }
 }

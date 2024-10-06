@@ -6,8 +6,8 @@
 
 const df = {
     name:       'debugInfo',
-    color:      hsl(.14, .4, .5),
-    background: '#00000070',
+    color:      hsl(.14, .6, .5),
+    background: '#000000A0',
     margin:     8,
     rx:         0,
     ry:         0,
@@ -18,10 +18,12 @@ class DebugInfo {
     constructor(st) {
         extend(this, df, st)
         this.keys = {}
+        this.icons = {}
     }
 
-    set(key, msg) {
+    set(key, msg, icon) {
         this.keys[key] = msg
+        this.icons[key] = icon
         if (!msg) delete this.keys[key]
     }
 
@@ -64,7 +66,13 @@ class DebugInfo {
         for (let i = 0; i < N; i++) {
             const k = keys[i]
             const v = this.keys[k]
-            text(k + ': ' + v, x, y)
+            const icon = this.icons[k]
+            if (icon) {
+                image(icon, x, y, f.size, f.size)
+                text(k + ': ' + v, x + f.size + this.margin, y)
+            } else {
+                text(k + ': ' + v, x, y)
+            }
             y += (f.size + this.margin)
         }
     }

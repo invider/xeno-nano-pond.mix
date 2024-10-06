@@ -21,6 +21,7 @@ function calcStat() {
             hp += e.hp
             teams[e.team].cells ++
             teams[e.team].hp += e.hp
+            teams[e.team].icon = e.descriptor.img
         }
     })
 
@@ -28,7 +29,7 @@ function calcStat() {
     lab.hud.debugInfo.set('hp', '' + hp)
     teams.forEach(team => {
         if (team.cells > 0) {
-            lab.hud.debugInfo.set(team.name, '' + team.cells + '/' + team.hp)
+            lab.hud.debugInfo.set(team.name, '' + team.cells + '/' + team.hp, team.icon)
         }
     })
 }
