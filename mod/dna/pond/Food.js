@@ -65,6 +65,8 @@ class Food {
         this.x += this.dx * dt
         this.y += this.dy * dt
         if (this.x < R && this.dx < 0) this.dx *= -1
+        else if (this.x > lab.pond.w-R && this.dx > 0) this.dx *= -1
+        else if (this.y > lab.pond.h-R && this.dy > 0) this.dy *= -1
         else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
         if (this.y < R && this.dy < 0) this.dy *= -1
         else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
