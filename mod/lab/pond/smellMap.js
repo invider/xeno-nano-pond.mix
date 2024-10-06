@@ -36,7 +36,6 @@ class SmellMap {
         })
     }
 
-
     _forEachCellInRadius(map, cx, cy, radius, callback){
         for (let y = 0; y < this.mapH; y++) {
             for (let x = 0; x < this.mapW; x++) {
@@ -53,6 +52,52 @@ class SmellMap {
         return map[gridY][gridX];
     }
     // execute function for each elemen in map in radius
+    
+    smellAt(map, gx, gy) {
+        if (gx < 0 || gx >= this.mapW || gy < 0 || gy >= this.mapH) return 0
+        return map[gy][gx]
+    }
+
+    getSmellDir(map, x, y) {
+        const [gx, gy] = this._toGrid(x, y)
+
+        const smells = []
+        smells.push( this.smellAt(map, gx - 1, gy - 1) )
+        smells.push( this.smellAt(map, gx    , gy - 1) )
+        smells.push( this.smellAt(map, gx + 1, gy - 1) )
+        smells.push( this.smellAt(map, gx - 1, gy    ) )
+        smells.push( this.smellAt(map, gx    , gy    ) )
+        smells.push( this.smellAt(map, gx + 1, gy    ) )
+        smells.push( this.smellAt(map, gx - 1, gy + 1) )
+        smells.push( this.smellAt(map, gx    , gy + 1) )
+        smells.push( this.smellAt(map, gx + 1, gy + 1) )
+
+        let max = 0, index = 0
+        for (let i = 0; i < smells.length; i++) {
+            if (smells[i] > max) {
+                max = smells[i]
+                index = i
+            }
+        }
+
+        let dgx = 0, dgy = 0
+        switch(index) {
+            case 0: dgx = -1; dgy = -1; break
+            case 1: dgx =  0; dgy = -1; break
+            case 2: dgx =  1; dgy = -1; break
+            case 3: dgx = -1; dgy =  0; break
+            case 4: dgx =  0; dgy =  0; break
+            case 5: dgx =  1; dgy =  0; break
+            case 6: dgx = -1; dgy =  1; break
+            case 7: dgx =  0; dgy =  1; break
+            case 8: dgx =  1; dgy =  1; break
+        }
+
+        return {
+            dx: dgx,
+            dy: dgy,
+        }
+    }
 
 
     _initMap(map){
