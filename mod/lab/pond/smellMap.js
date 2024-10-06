@@ -145,7 +145,7 @@ class SmellMap {
             for (let x = 0; x < this.mapW; x++) {
                 const G = this.granularity
                 const foodVal = this.foodMap[y][x]
-                const color = limit(Math.floor(foodVal * 255), 0, 255)
+                const color = limit(Math.floor(foodVal * 100), 0, 100)
                 const R = color.toString(16).padStart(2, '0')
                 fill(`#${R}2020`)
                 rect(x * G, y * G, G, G)
