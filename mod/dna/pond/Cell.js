@@ -215,7 +215,16 @@ class Cell {
         stroke('#00ff00')
         var lifespanWidth = this.w * this.lifespan / this.descriptor.lifespan
         line(- halfW, - halfH + 3, - halfW + lifespanWidth, - halfH + 3)
+        
+        // target bar
+        lineWidth(2)
+        stroke('#ffff00')
+        line(0, 0, this.targetDx, this.targetDy)
 
+        // direction bar
+        lineWidth(2)
+        stroke('#ff00ff')
+        line(0, 0, this.dx, this.dy)
         restore();
     }
 }
