@@ -68,6 +68,11 @@ class Cell {
                 ]
             }
         }
+
+        this.dx = math.rnds() * (20 + 20 * rnd())
+        this.dy = math.rnds() * (20 + 20 * rnd())
+        this.targetDx = this.dx
+        this.targetDy = this.dy
         
         extend(this, {
             x: 0,
@@ -92,14 +97,7 @@ class Cell {
         console.log("descriptor", this.descriptor);
     }
 
-    init() {
-        this.x = rx(1) * rnd()
-        this.y = ry(1) * rnd()
-        this.dx = math.rnds() * (20 + 20 * rnd())
-        this.dy = math.rnds() * (20 + 20 * rnd())
-        this.targetDx = this.dx
-        this.targetDy = this.dy
-    }
+    init() {}
 
     evo(dt) {
         this.a += this.da * dt
@@ -110,7 +108,7 @@ class Cell {
             this.dx *= -1
             this.targetDx *= -1
         }
-        else if (this.x > ctx.width-R && this.dx > 0) 
+        else if (this.x > lab.pond.w-R && this.dx > 0) 
         {
             this.dx *= -1
             this.targetDx *= -1
@@ -119,7 +117,7 @@ class Cell {
             this.dy *= -1
             this.targetDy *= -1
         }
-        else if (this.y > ctx.height-R && this.dy > 0) {
+        else if (this.y > lab.pond.h-R && this.dy > 0) {
             this.dy *= -1
             this.targetDy *= -1
         }
