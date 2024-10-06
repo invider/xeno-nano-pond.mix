@@ -4,6 +4,7 @@ const _pond = {
     w:    2000,
     h:    2000,
     speed: ctx.width * .25,
+    zoomOnPlusMinus: true,
 
     setTarget: function(x, y) {
         this.target = { x, y }
