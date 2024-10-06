@@ -15,23 +15,26 @@ function hideAllExcept(name) {
     })
 }
 
+function hideAll() {
+    hideAllExcept('none')
+}
+
 function switchTo(name, st) {
     if (name === 'pond') {
-        hideAllExcept('none')
+        hideAllExcept('pond')
         showPond()
     } else {
         hideAllExcept(name)
         lab.screen[name].show()
     }
     env.screen = name
-    log(`switched to screen [${name}]`)
 }
 
 function transitTo(name, st) {
     if (name !== 'pond' && !lab.screen[name]) {
         throw `can't transit to unknown screen [${name}]`
     }
-    log(`transiting to [${name}]`)
+    log(`fading to [${name}]`)
 
     const ts = {
         fadein:  2,

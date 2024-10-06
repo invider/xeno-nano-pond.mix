@@ -8,9 +8,11 @@ function hide() {
     this.paused = true
     this.disabled = true
     if (this.onHide) this.onHide()
+    /*
     if (this.control) {
         lab.control.global.release(this.control)
     }
+    */
 }
 
 function show() {
@@ -18,9 +20,11 @@ function show() {
     this.paused = false
     this.disabled = false
     if (this.onShow) this.onShow()
+    /*
     if (this.control) {
         lab.control.global.capture(this.control)
     }
+    */
 }
 
 /*
