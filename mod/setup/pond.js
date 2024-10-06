@@ -6,7 +6,7 @@ function pond() {
     //lab.pond.h = 600
     //lab.pond.smellMap.reset()
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 120; i++) {
         lab.pond.spawn( dna.pond.Cell, {
             x: rnd() * lab.pond.w,
             y: rnd() * lab.pond.h,

@@ -2,6 +2,7 @@ const cellTypes = {
     'froggy': {
         img: res.cell.froggy,
         lifespan: 10,
+        team: 2,
         cellType: 'froggy',
         centers: [
             {
@@ -14,6 +15,7 @@ const cellTypes = {
     'jelly': {
         img: res.cell.jelly,
         lifespan: 40,
+        team: 1,
         cellType: 'jelly',
         centers: [
             {
@@ -27,6 +29,7 @@ const cellTypes = {
         img: res.cell.orangy,
         lifespan: 20,
         cellType: 'orange',
+        team: 2,
         centers: [
             {
                 x: 0,
@@ -39,6 +42,7 @@ const cellTypes = {
         img: res.cell.swampy,
         lifespan: 15,
         cellType: 'swampy',
+        team: 1,
         centers: [
             {
                 x: 0,
@@ -50,6 +54,7 @@ const cellTypes = {
     'brownie': {
         img: res.cell.brownie,
         lifespan: 30,
+        team: 3,
         cellType: 'brownie',
         centers: [
             {
@@ -118,6 +123,18 @@ class Cell {
     hit(trg) {
         if (trg instanceof dna.pond.Food) {
             this.eat(trg)
+        } else if (trg instanceof dna.pond.Cell) {
+            if (false && this.team !== trg.team) {
+                console.log("Enemy detected: ", trg)
+                //this.eat(trg)
+            } else {
+                this.dx = this.x - trg.x
+                this.dy = this.y - trg.y
+            }
+            if (Math.abs(this.x - trg.x) < 2 && Math.abs(this.y - trg.y) < 2) {
+                this.x = trg.x - 2 * math.rnds();
+                this.y = trg.y - 2 * math.rnds();
+            }
         }
     }
 
@@ -166,12 +183,13 @@ class Cell {
                 this.targetDy = math.rnds() * (20 + 20 * rnd())
             }
         }
+        
 
         var dxDiff = this.targetDx - this.dx;
         var dyDiff = this.targetDy - this.dy;
 
-        this.dx += dxDiff * 0.1 * dt;
-        this.dy += dyDiff * 0.1 * dt;
+        this.dx += this._normalizeD(dxDiff * 0.1 * dt);
+        this.dy += this._normalizeD(dyDiff * 0.1 * dt);
         
         this.lifespan -= dt
         if (this.lifespan <= 0) {
@@ -182,6 +200,16 @@ class Cell {
         if (this.hp > this.baseHp * this.hpThreshold) {
             this.mitosis()
         }
+    }
+
+    _normalizeD(d){
+        if (Math.abs(d) < 0.01) {
+            if (d == 0){
+                return 0.01;
+            }
+            return 0.01 * d / -d
+        }
+        return d;
     }
 
     mitosis() {
