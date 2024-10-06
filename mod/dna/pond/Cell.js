@@ -140,6 +140,11 @@ class Cell {
         this.lifespan -= dt
         if (this.lifespan <= 0) {
             kill(this)
+            lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y})
+        }
+        // this.hp += 1 * dt;
+        if (this.hp > this.baseHp * this.hpThreshold) {
+            this.mitosis()
         }
     }
 
@@ -150,7 +155,6 @@ class Cell {
     }
 
     onKill() {
-        lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y})
         //lab.pond.food.spawn( dna.pond.Food)
     }
 
