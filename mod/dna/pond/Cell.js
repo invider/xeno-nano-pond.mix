@@ -94,6 +94,7 @@ class Cell {
             y: 0,
             r: 20,
             hp: 0,
+            vrs: 0.5,
             receptorCooldown: 0.5,
             rcCd: Math.random() * 3,
             a: 0,
@@ -205,8 +206,8 @@ class Cell {
         var dxDiff = this.targetDx - this.dx;
         var dyDiff = this.targetDy - this.dy;
 
-        this.dx += this._normalizeD(dxDiff * 0.1 * dt);
-        this.dy += this._normalizeD(dyDiff * 0.1 * dt);
+        this.dx += this._normalizeD(dxDiff * this.vrs * dt);
+        this.dy += this._normalizeD(dyDiff * this.vrs * dt);
         
         this.lifespan -= dt
         if (this.lifespan <= 0) {

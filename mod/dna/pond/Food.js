@@ -30,9 +30,10 @@ class Food {
             x: 0,
             y: 0,
             r: 10,
+            dr: 0.1,
             a: math.rndfi(),
-            dx:0,
-            dy:0,
+            dx:5 * math.rnds(),
+            dy:5 * math.rnds(),
             descriptor: descriptor
         }, st)
         this.hp = this.descriptor.hp || 100;
@@ -59,14 +60,14 @@ class Food {
     }
 
     evo(dt) {
-        // this.a += this.da * dt
-        // const R = this.r
-        // this.x += this.dx * dt
-        // this.y += this.dy * dt
-        // if (this.x < R && this.dx < 0) this.dx *= -1
-        // else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
-        // if (this.y < R && this.dy < 0) this.dy *= -1
-        // else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
+        this.a += this.da * dt
+        const R = this.r
+        this.x += this.dx * dt
+        this.y += this.dy * dt
+        if (this.x < R && this.dx < 0) this.dx *= -1
+        else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
+        if (this.y < R && this.dy < 0) this.dy *= -1
+        else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
         
     }
 
