@@ -71,8 +71,10 @@ class Food {
     }
 
     draw() {
-        save();
-        translate(this.x, this.y);
+        save()
+        translate(this.x, this.y)
+
+        save()
         rotate(this.a);
         // image(this.descriptor.img, - this.w / 2, - this.h / 2, this.w, this.h);
         //lineWidth(2)
@@ -80,8 +82,17 @@ class Food {
         //circle(0, 0, this.r)
         image(this.img, - this.w / 2, - this.h / 2, this.w, this.h);
 
+        // === debug info ===
+        restore() // back from rotation
         if (env.debug && env.flag.showSolids) {
             this.solids.forEach(solid => solid.draw())
+        }
+        if (env.debug && env.flag.showName) {
+            baseBottom()
+            alignCenter()
+            fill('#ffffff')
+            font('12px pixel-operator-8')
+            text(this.name, 0, -this.r)
         }
 
         restore();

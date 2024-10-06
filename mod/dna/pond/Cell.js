@@ -244,6 +244,15 @@ class Cell {
             stroke('#ff00ff')
             line(0, 0, this.dx, this.dy)
         }
+
+        if (env.debug && env.flag.showName) {
+            baseBottom()
+            alignCenter()
+            fill('#ffffff')
+            font('12px pixel-operator-8')
+            text(this.name, 0, -this.r)
+        }
+
         restore();
     }
 }
