@@ -1,8 +1,8 @@
 const _pond = {
     DNA:  'SlideCamera',
     name: 'pond',
-    w:    5000,
-    h:    5000,
+    w:    2000,
+    h:    2000,
     speed: ctx.width * .25,
 
     setTarget: function(x, y) {

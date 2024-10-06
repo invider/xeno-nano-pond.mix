@@ -9,12 +9,11 @@ class Food {
             dx:0,
             dy:0,
         }, st)
-        
     }
 
     init() {
-        this.x = rx(1) * rnd()
-        this.y = ry(1) * rnd()
+        //this.x = rx(1) * rnd()
+        //this.y = ry(1) * rnd()
         // this.dx = math.rnds() * (20 + 20 * rnd())
         // this.dy = math.rnds() * (20 + 20 * rnd())
     }

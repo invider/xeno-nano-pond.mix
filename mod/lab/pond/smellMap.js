@@ -12,8 +12,8 @@ class SmellMap {
         this._initMap(this.threatMap)
         this.smellFading = 0.3;
         this.smellRadius = 3;
-        this.sceneW = ctx.width;
-        this.sceneH = ctx.height;
+        this.sceneW = lab.pond.w;
+        this.sceneH = lab.pond.h;
 
         this.mapW = this.sceneW / this.granularity;
         this.mapH = this.sceneH / this.granularity;
