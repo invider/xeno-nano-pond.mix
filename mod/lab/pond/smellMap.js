@@ -141,7 +141,7 @@ class SmellMap {
                 baseMiddle()
                 alignCenter()
                 fill('#ffffff')
-                font('20px pixel-operator-8')
+                font('8px pixel-operator-8')
                 text('' + round(foodVal * 100)/100, x * G + .5*G, y * G + .5*G)
             }
         }
