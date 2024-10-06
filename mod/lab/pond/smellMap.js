@@ -1,10 +1,10 @@
 class SmellMap {
     constructor() {
-        this.granularity = 100;
+        this.granularity = 50;
         this.foodMap = []
         this.threatMap = []
         this.smellFading = 0.3;
-        this.smellRadius = 1;
+        this.smellRadius = 3;
         this.sceneW = ctx.width;
         this.sceneH = ctx.height;
 
