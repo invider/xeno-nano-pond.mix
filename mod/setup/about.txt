@@ -1,0 +1,10 @@
+=== Setup ===
+
+Here we are setting up the game.
+
+Each function in this folder is responsible for setup of some subsystem.
+
+The Z value defines the order these functions are going to be executed
+with lower Z executing first. So if your setup depends on some subsystem,
+make sure it's Z value is lower.
+

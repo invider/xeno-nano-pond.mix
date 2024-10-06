@@ -1,0 +1,9 @@
+=== DNA ===
+
+Entity blueprints are defined here - classes, prototypes, traits etc...
+
+Everything that could be spawned in /lab are defined in this folder.
+
+So we define the Cell class here and then spawn it many times in /lab
+for these cells to live and evolve.
+

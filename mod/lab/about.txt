@@ -1,0 +1,15 @@
+=== Lib ===
+
+Objects in this folder live and evolve.
+
+You must implement some (or all) of the functions defining behavior:
+
+* init()  - executed the first time the object is attached to /lab/...
+* evo(dt) - implements object behavior (movements, physics, collisions, AI etc...), dt is delta time since the last iteration
+* draw()  - draws the object
+
+Also an object in /lab could have some of the flags defined:
+
+* hidden - if set true, draw() is ignored and the object will not be shown
+* paused - if set true, evo(dt) is ignored and the object will not be evolved
+

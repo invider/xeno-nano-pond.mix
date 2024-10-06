@@ -1,0 +1,4 @@
+=== Trap ===
+
+We define trap functions here to catch collider and custom events.
+
