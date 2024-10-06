@@ -186,8 +186,8 @@ class Cell {
 
     mitosis() {
         log(`[${this.name}]: mitosis!!`)
-        lab.pond.food.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx + 1, dy: this.dy + 1, descriptor: this.descriptor, a: this.a})
-        lab.pond.food.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx - 1, dy: this.dy - 1, descriptor: this.descriptor, a: this.a})
+        lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx + 1, dy: this.dy + 1, descriptor: this.descriptor, a: this.a})
+        lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx - 1, dy: this.dy - 1, descriptor: this.descriptor, a: this.a})
         kill(this)
     }
 

@@ -19,5 +19,16 @@ function pond() {
             y: rnd() * lab.pond.h,
         })
     }
+    // lab.pond.spawn( dna.pond.Cell, {
+    //     x: 100,
+    //     y: 100,
+    //     dx: 10,
+    //     dy:0
+    // })
+
+    // lab.pond.food.spawn( dna.pond.Food, {
+    //     x: 170,
+    //     y: 130,
+    // })
 }
 pond.Z = 7
