@@ -124,6 +124,7 @@ class Cell {
     eat(food) {
         this.hp += food.hp
         log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
+        log(lib.util.normXY(this.x, this.y) + ' <=> ' + lib.util.normXY(food.x, food.y))
         kill(food)
         lib.sfx('eat')
     }
@@ -150,6 +151,7 @@ class Cell {
             this.dy *= -1
             this.targetDy *= -1
         }
+
         this.rcCd -= dt;
         if (this.rcCd <= 0) {
             this.rcCd = this.receptorCooldown;

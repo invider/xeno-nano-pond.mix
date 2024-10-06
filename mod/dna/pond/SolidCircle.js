@@ -9,10 +9,19 @@ class SolidCircle {
         this.r2 = this.r * this.r
     }
 
+    gx() {
+        return this.__.x + this.x
+    }
+
+    gy() {
+        return this.__.y + this.y
+    }
+
     collideWith(solid) {
         const d2 = math.distanceSq(
-            this.__.x + this.x, this.__.y + this.y,
-            solid.__.x + solid.x, solid.__.y + solid.y)
+            this.gx(),  this.gy(),
+            solid.gx(), solid.gy()
+        )
         return (d2 <= this.r + solid.r)
     }
 
