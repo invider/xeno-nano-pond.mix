@@ -82,6 +82,16 @@ class SmellMap {
             Math.floor(y / this.granularity)
         ]
     }
+
+    draw() {
+        for (let y = 0; y < this.mapH; y++) {
+            for (let x = 0; x < this.mapW; x++) {
+                let color = Math.floor(this.foodMap[y][x] * 255)
+                fill('#' + color.toString(16) + '0000')
+                rect(x * this.granularity, y * this.granularity, this.granularity, this.granularity)
+            }
+        }
+    }
 }
 
 const smellMap = new SmellMap();
