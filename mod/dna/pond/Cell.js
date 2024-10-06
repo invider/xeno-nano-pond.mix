@@ -109,7 +109,6 @@ class Cell {
     init() {}
 
     collideWith(trg) {
-<<<<<<< Updated upstream
         if (!trg.solids) return
         for (let i = 0; i < this.solids.length; i++) {
             const mySolid = this.solids[i]
@@ -123,9 +122,6 @@ class Cell {
 
     hit(trg) {
         log(`hit [${this.name}] <=> [${trg.name}]`)
-=======
-        
->>>>>>> Stashed changes
     }
 
     evo(dt) {
