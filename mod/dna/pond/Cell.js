@@ -109,6 +109,7 @@ class Cell {
     init() {}
 
     collideWith(trg) {
+<<<<<<< Updated upstream
         if (!trg.solids) return
         for (let i = 0; i < this.solids.length; i++) {
             const mySolid = this.solids[i]
@@ -122,6 +123,9 @@ class Cell {
 
     hit(trg) {
         log(`hit [${this.name}] <=> [${trg.name}]`)
+=======
+        
+>>>>>>> Stashed changes
     }
 
     evo(dt) {
@@ -184,20 +188,37 @@ class Cell {
     draw() {
         save();
         translate(this.x, this.y);
+        save()
         rotate(this.a);
         image(this.descriptor.img, - this.w / 2, - this.h / 2, this.w, this.h);
-        lineWidth(2)
         let foodSmell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y)
         if (foodSmell > 1){
             foodSmell = 1
         } 
         let color = Math.floor(foodSmell * 255)
+        lineWidth(2)
         stroke('#' + color.toString(16).padStart(2, '0') + '1111')
         //stroke('#40A0CE')
         circle(0, 0, this.r)
 
         // show solids
         this.solids.forEach(solid => solid.draw())
+
+        restore();
+        
+        let halfW = this.w / 2
+        let halfH = this.h / 2
+        // hp bar
+        lineWidth(2)
+        stroke('#ff0000')
+        var lifespanWidth = this.w * this.hp / this.baseHp
+        line(- halfW, - halfH, - halfW + lifespanWidth, - halfH)
+
+        // hp bar
+        lineWidth(2)
+        stroke('#00ff00')
+        var lifespanWidth = this.w * this.lifespan / this.descriptor.lifespan
+        line(- halfW, - halfH + 3, - halfW + lifespanWidth, - halfH + 3)
 
         restore();
     }
