@@ -1,6 +1,8 @@
+let _id = 0
 class Food {
 
     constructor(st) {
+        this.name = 'food' + (++_id)
         extend(this, {
             x: 0,
             y: 0,
@@ -47,6 +49,10 @@ class Food {
         lineWidth(2)
         stroke('#f59e42')
         circle(0, 0, this.r)
+
+        // show solids
+        this.solids.forEach(solid => solid.draw())
+
         restore();
     }
 }

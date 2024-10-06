@@ -1,74 +1,76 @@
+const cellTypes = {
+    'froggy': {
+        img: res.cell.froggy,
+        w: 512,
+        h: 276,
+        lifespan: 10,
+        centers: [
+            {
+                x: 0,
+                y: 0,
+                r: 25
+            }
+        ]
+    },
+    'jelly': {
+        img: res.cell.jelly,
+        w: 512,
+        h: 412,
+        lifespan: 40,
+        centers: [
+            {
+                x: 0,
+                y: 0,
+                r: 25
+            }
+        ]
+    },
+    'orange': {
+        img: res.cell.orangy,
+        w: 512,
+        h: 276,
+        lifespan: 20,
+        centers: [
+            {
+                x: 0,
+                y: 0,
+                r: 25
+            }
+        ]
+    },
+    'swampy': {
+        img: res.cell.swampy,
+        w: 512,
+        h: 275,
+        lifespan: 15,
+        centers: [
+            {
+                x: 0,
+                y: 0,
+                r: 25
+            }
+        ]
+    },
+    'brownie': {
+        img: res.cell.brownie,
+        w: 512,
+        h: 494,
+        lifespan: 30,
+        centers: [
+            {
+                x: 50,
+                y: 50,
+                r: 25
+            }
+        ]
+    }
+}
+
+let _id = 0
 class Cell {
 
     constructor(st) {
-        let cellTypes = {
-            'froggy': {
-                img: res.cell.froggy,
-                w: 512,
-                h: 276,
-                lifespan: 10,
-                centers: [
-                    {
-                        x: 50,
-                        y: 50,
-                        r: 25
-                    }
-                ]
-            },
-            'jelly': {
-                img: res.cell.jelly,
-                w: 512,
-                h: 412,
-                lifespan: 40,
-                centers: [
-                    {
-                        x: 50,
-                        y: 50,
-                        r: 25
-                    }
-                ]
-            },
-            'orange': {
-                img: res.cell.orangy,
-                w: 512,
-                h: 276,
-                lifespan: 20,
-                centers: [
-                    {
-                        x: 50,
-                        y: 50,
-                        r: 25
-                    }
-                ]
-            },
-            'swampy': {
-                img: res.cell.swampy,
-                w: 512,
-                h: 275,
-                lifespan: 15,
-                centers: [
-                    {
-                        x: 50,
-                        y: 50,
-                        r: 25
-                    }
-                ]
-            },
-            'brownie': {
-                img: res.cell.brownie,
-                w: 512,
-                h: 494,
-                lifespan: 30,
-                centers: [
-                    {
-                        x: 50,
-                        y: 50,
-                        r: 25
-                    }
-                ]
-            }
-        }
-
+        this.name = 'cell' + (++_id)
         this.dx = math.rnds() * (20 + 20 * rnd())
         this.dy = math.rnds() * (20 + 20 * rnd())
         this.targetDx = this.dx
@@ -94,12 +96,32 @@ class Cell {
         this.aspectRate = this.descriptor.w / this.descriptor.h
         this.w = this.r * 2
         this.h = this.w / this.aspectRate
-        console.log("descriptor", this.descriptor);
+
+        const cell = this
+        const solids = this.solids = []
+        this.descriptor.centers.forEach(center => {
+            const solid = new dna.pond.SolidCircle(center)
+            solid.__ = cell
+            solids.push(solid)
+        })
     }
 
     init() {}
 
     collideWith(trg) {
+        if (!trg.solids) return
+        for (let i = 0; i < this.solids.length; i++) {
+            const mySolid = this.solids[i]
+            for (let j = 0; j < trg.solids.length; j++) {
+                const trgSolid = trg.solids[j]
+                if (mySolid.collideWith(trgSolid)) return true
+            }
+        }
+        return false
+    }
+
+    hit(trg) {
+        log(`hit [${this.name}] <=> [${trg.name}]`)
     }
 
     evo(dt) {
@@ -173,6 +195,10 @@ class Cell {
         stroke('#' + color.toString(16).padStart(2, '0') + '1111')
         //stroke('#40A0CE')
         circle(0, 0, this.r)
+
+        // show solids
+        this.solids.forEach(solid => solid.draw())
+
         restore();
     }
 }
