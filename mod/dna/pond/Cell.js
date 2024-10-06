@@ -196,6 +196,7 @@ class Cell {
     draw() {
         save();
         translate(this.x, this.y);
+
         save()
         rotate(this.a);
         image(this.descriptor.img, - this.w / 2, - this.h / 2, this.w, this.h);
@@ -215,32 +216,34 @@ class Cell {
         }
         if (env.debug && env.flag.showSolids) this.solids.forEach(solid => solid.draw())
 
-        restore();
+        restore(); // back from rotation
         
         // === debug bars ===
-        let halfW = this.w / 2
-        let halfH = this.h / 2
-        // hp bar
-        lineWidth(2)
-        stroke('#ff0000')
-        var lifespanWidth = this.w * this.hp / this.baseHp
-        line(- halfW, - halfH, - halfW + lifespanWidth, - halfH)
+        if (env.debug && env.flag.showBars) {
+            let halfW = this.w / 2
+            let halfH = this.h / 2
+            // hp bar
+            lineWidth(2)
+            stroke('#ff0000')
+            var lifespanWidth = this.w * this.hp / this.baseHp
+            line(- halfW, - halfH, - halfW + lifespanWidth, - halfH)
 
-        // hp bar
-        lineWidth(2)
-        stroke('#00ff00')
-        var lifespanWidth = this.w * this.lifespan / this.descriptor.lifespan
-        line(- halfW, - halfH + 3, - halfW + lifespanWidth, - halfH + 3)
-        
-        // target bar
-        lineWidth(2)
-        stroke('#ffff00')
-        line(0, 0, this.targetDx, this.targetDy)
+            // hp bar
+            lineWidth(2)
+            stroke('#00ff00')
+            var lifespanWidth = this.w * this.lifespan / this.descriptor.lifespan
+            line(- halfW, - halfH + 3, - halfW + lifespanWidth, - halfH + 3)
+            
+            // target bar
+            lineWidth(2)
+            stroke('#ffff00')
+            line(0, 0, this.targetDx, this.targetDy)
 
-        // direction bar
-        lineWidth(2)
-        stroke('#ff00ff')
-        line(0, 0, this.dx, this.dy)
+            // direction bar
+            lineWidth(2)
+            stroke('#ff00ff')
+            line(0, 0, this.dx, this.dy)
+        }
         restore();
     }
 }

@@ -79,8 +79,10 @@ class Food {
         //stroke('#f59e42')
         //circle(0, 0, this.r)
         image(this.img, - this.w / 2, - this.h / 2, this.w, this.h);
-        // show solids
-        this.solids.forEach(solid => solid.draw())
+
+        if (env.debug && env.flag.showSolids) {
+            this.solids.forEach(solid => solid.draw())
+        }
 
         restore();
     }
