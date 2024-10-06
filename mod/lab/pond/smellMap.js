@@ -141,6 +141,8 @@ class SmellMap {
     }
 
     draw() {
+        if (!env.debug || !env.flag.showMaps) return
+
         for (let y = 0; y < this.mapH; y++) {
             for (let x = 0; x < this.mapW; x++) {
                 const G = this.granularity

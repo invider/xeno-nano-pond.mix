@@ -194,21 +194,25 @@ class Cell {
         save()
         rotate(this.a);
         image(this.descriptor.img, - this.w / 2, - this.h / 2, this.w, this.h);
-        let foodSmell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y)
-        if (foodSmell > 1){
-            foodSmell = 1
-        } 
-        let color = Math.floor(foodSmell * 255)
-        lineWidth(2)
-        stroke('#' + color.toString(16).padStart(2, '0') + '1111')
-        //stroke('#40A0CE')
-        circle(0, 0, this.r)
 
-        // show solids
-        this.solids.forEach(solid => solid.draw())
+        // === debug circles ===
+        if (env.debug && env.flag.showRadius) {
+            let foodSmell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y)
+            if (foodSmell > 1){
+                foodSmell = 1
+            } 
+
+            let color = Math.floor(foodSmell * 255)
+            lineWidth(2)
+            stroke('#' + color.toString(16).padStart(2, '0') + '1111')
+            //stroke('#40A0CE')
+            circle(0, 0, this.r)
+        }
+        if (env.debug && env.flag.showSolids) this.solids.forEach(solid => solid.draw())
 
         restore();
         
+        // === debug bars ===
         let halfW = this.w / 2
         let halfH = this.h / 2
         // hp bar
