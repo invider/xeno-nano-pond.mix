@@ -6,6 +6,7 @@ class Cell {
                 img: res.cell.froggy,
                 w: 512,
                 h: 276,
+                lifespan: 10,
                 centers: [
                     {
                         x: 50,
@@ -18,6 +19,7 @@ class Cell {
                 img: res.cell.jelly,
                 w: 512,
                 h: 412,
+                lifespan: 40,
                 centers: [
                     {
                         x: 50,
@@ -30,6 +32,7 @@ class Cell {
                 img: res.cell.orangy,
                 w: 512,
                 h: 276,
+                lifespan: 20,
                 centers: [
                     {
                         x: 50,
@@ -42,6 +45,7 @@ class Cell {
                 img: res.cell.swampy,
                 w: 512,
                 h: 275,
+                lifespan: 15,
                 centers: [
                     {
                         x: 50,
@@ -54,6 +58,7 @@ class Cell {
                 img: res.cell.brownie,
                 w: 512,
                 h: 494,
+                lifespan: 30,
                 centers: [
                     {
                         x: 50,
@@ -76,6 +81,8 @@ class Cell {
             dy: 10,
             descriptor: math.rnde(cellTypes)
         }, st)
+        this.descriptor.lifespan = this.descriptor.lifespan || 20
+        this.lifespan = this.descriptor.lifespan;
         this.aspectRate = this.descriptor.w / this.descriptor.h
         this.w = this.r * 2
         this.h = this.w / this.aspectRate
@@ -126,6 +133,20 @@ class Cell {
 
         this.dx += dxDiff * 0.1 * dt;
         this.dy += dyDiff * 0.1 * dt;
+        
+        this.lifespan -= dt
+        if (this.lifespan <= 0) {
+            kill(this)
+        }
+    }
+
+    mitosis() {
+        
+    }
+
+    onKill() {
+        lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y})
+        //lab.pond.food.spawn( dna.pond.Food)
     }
 
     draw() {
