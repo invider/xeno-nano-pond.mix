@@ -131,9 +131,9 @@ class Cell {
                 this.dx = this.x - trg.x
                 this.dy = this.y - trg.y
             }
-            if (Math.abs(this.x - trg.x) < 2 && Math.abs(this.y - trg.y) < 2) {
-                this.x = trg.x - 2 * math.rnds();
-                this.y = trg.y - 2 * math.rnds();
+            if (Math.abs(this.x - trg.x) <= 1 && Math.abs(this.y - trg.y) <= 1) {
+                this.x = trg.x - (1 + 3 * math.rnd()) * math.rnds();
+                this.y = trg.y - (1 + 3 * math.rnd()) * math.rnds();
             }
         }
     }
