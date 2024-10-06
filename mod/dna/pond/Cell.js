@@ -140,7 +140,7 @@ class Cell {
             this.eat(trg)
         } else if (trg instanceof dna.pond.Cell) {
             if (this.team !== trg.team) {
-                console.log("Enemy detected: ", trg)
+                //console.log("Enemy detected: ", trg)
                 this.hp -= Math.min(trg.damage, trg.hp);
             } 
 
@@ -156,8 +156,7 @@ class Cell {
 
     eat(food) {
         this.hp += food.hp
-        log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
-        //log(lib.util.normXY(this.x, this.y) + ' <=> ' + lib.util.normXY(food.x, food.y))
+        //log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
         kill(food)
         lib.sfx('eat')
     }
@@ -237,7 +236,6 @@ class Cell {
     }
 
     mitosis() {
-        log(`[${this.name}]: mitosis!!`)
         lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx + 1, dy: this.dy + 1, descriptor: this.descriptor, a: this.a})
         lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx - 1, dy: this.dy - 1, descriptor: this.descriptor, a: this.a})
         kill(this)
