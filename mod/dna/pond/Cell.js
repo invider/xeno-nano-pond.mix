@@ -2,6 +2,7 @@ const cellTypes = {
     'froggy': {
         img: res.cell.froggy,
         lifespan: 10,
+        cellType: 'froggy',
         centers: [
             {
                 x: 0,
@@ -13,6 +14,7 @@ const cellTypes = {
     'jelly': {
         img: res.cell.jelly,
         lifespan: 40,
+        cellType: 'jelly',
         centers: [
             {
                 x: 0,
@@ -24,6 +26,7 @@ const cellTypes = {
     'orange': {
         img: res.cell.orangy,
         lifespan: 20,
+        cellType: 'orange',
         centers: [
             {
                 x: 0,
@@ -35,6 +38,7 @@ const cellTypes = {
     'swampy': {
         img: res.cell.swampy,
         lifespan: 15,
+        cellType: 'swampy',
         centers: [
             {
                 x: 0,
@@ -46,6 +50,7 @@ const cellTypes = {
     'brownie': {
         img: res.cell.brownie,
         lifespan: 30,
+        cellType: 'brownie',
         centers: [
             {
                 x: 0,
@@ -169,7 +174,7 @@ class Cell {
         this.lifespan -= dt
         if (this.lifespan <= 0) {
             kill(this)
-            lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y})
+            lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y, cellType: this.descriptor.cellType})
         }
         // this.hp += 1 * dt;
         if (this.hp > this.baseHp * this.hpThreshold) {
