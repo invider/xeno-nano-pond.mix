@@ -30,7 +30,7 @@ class Food {
             x: 0,
             y: 0,
             r: 10,
-            a: 0,
+            a: math.rndfi(),
             dx:0,
             dy:0,
             descriptor: descriptor
