@@ -1,5 +1,6 @@
 function mouseDown(e) {
-    log(`feed at port::${e.pageX}:${e.pageY}`)
-    sfx(res.sfx.chime, 1)
+    log(`look at port::${e.pageX}:${e.pageY}`)
+    lib.sfx('pop')
+    lab.pond.setViewTarget(e.pageX, e.pageY)
 }
 

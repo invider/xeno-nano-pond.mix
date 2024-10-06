@@ -86,9 +86,18 @@ class SmellMap {
     draw() {
         for (let y = 0; y < this.mapH; y++) {
             for (let x = 0; x < this.mapW; x++) {
-                let color = Math.floor(this.foodMap[y][x] * 255)
-                fill('#' + color.toString(16) + '0000')
-                rect(x * this.granularity, y * this.granularity, this.granularity, this.granularity)
+                const G = this.granularity
+                const foodVal = this.foodMap[y][x]
+                const color = limit(Math.floor(foodVal * 255), 0, 255)
+                const R = color.toString(16).padStart(2, '0')
+                fill(`#${R}2020`)
+                rect(x * G, y * G, G, G)
+
+                baseMiddle()
+                alignCenter()
+                fill('#ffffff')
+                font('20px pixel-operator-8')
+                text('' + round(foodVal * 100)/100, x * G + .5*G, y * G + .5*G)
             }
         }
     }

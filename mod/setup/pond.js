@@ -1,6 +1,5 @@
 function pond() {
     // all cells will live in a pond
-    lab.touch('pond')
     lab.pond.touch('food')
 
     for (let i = 0; i < 128; i++) {
