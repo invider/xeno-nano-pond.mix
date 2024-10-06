@@ -14,15 +14,18 @@ class Cell {
     init() {
         this.x = rx(1) * rnd()
         this.y = ry(1) * rnd()
+        this.dx = math.rnds() * (20 + 20 * rnd())
+        this.dy = math.rnds() * (20 + 20 * rnd())
     }
 
     evo(dt) {
+        const R = this.r
         this.x += this.dx * dt
         this.y += this.dy * dt
-        if (this.x < 0 && this.dx < 0) this.dx *= -1
-        else if (this.x > ctx.width && this.dx > 0) this.dx *= -1
-        if (this.y < 0 && this.dy < 0) this.dy *= -1
-        else if (this.y > ctx.height && this.dy > 0) this.dy *= -1
+        if (this.x < R && this.dx < 0) this.dx *= -1
+        else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
+        if (this.y < R && this.dy < 0) this.dy *= -1
+        else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
     }
 
     draw() {
