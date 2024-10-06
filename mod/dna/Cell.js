@@ -17,8 +17,8 @@ class Cell {
     }
 
     evo(dt) {
-        this.x += this.dx
-        this.y += this.dy
+        this.x += this.dx * dt
+        this.y += this.dy * dt
         if (this.x < 0 && this.dx < 0) this.dx *= -1
         else if (this.x > ctx.width && this.dx > 0) this.dx *= -1
         if (this.y < 0 && this.dy < 0) this.dy *= -1
