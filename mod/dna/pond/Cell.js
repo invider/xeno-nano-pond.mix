@@ -58,7 +58,7 @@ const cellTypes = {
     'brownie': {
         img: res.cell.brownie,
         lifespan: 30,
-        baseHp: 100,
+        baseHp: 90,
         team: 5,
         cellType: 'brownie',
         centers: [
