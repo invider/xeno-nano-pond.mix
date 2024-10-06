@@ -84,7 +84,7 @@ class SmellMap {
         smells.push( this.smellAt(map, gx    , gy + 1) )
         smells.push( this.smellAt(map, gx + 1, gy + 1) )
 
-        let max = 0, index = 0
+        let max = 0, index = 4
         for (let i = 0; i < smells.length; i++) {
             if (smells[i] > max) {
                 max = smells[i]
