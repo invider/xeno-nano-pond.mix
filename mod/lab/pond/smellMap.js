@@ -61,13 +61,21 @@ class SmellMap {
 
     getSmell(map, x, y){
         let [gridX, gridY] = this._toGrid(x, y);
-        return map[gridY][gridX];
+        return this._getWithBounds(map, gridX, gridY)
     }
     // execute function for each elemen in map in radius
     
     smellAt(map, gx, gy) {
         if (gx < 0 || gx >= this.mapW || gy < 0 || gy >= this.mapH) return 0
-        return map[gy][gx]
+        return this._getWithBounds(map, gx, gy)
+    }
+
+    _getWithBounds(map, x, y) {
+        if (x < 0) x = 0
+        if (x >= this.mapW) x = this.mapW - 1
+        if (y < 0) y = 0
+        if (y >= this.mapH) y = this.mapH - 1
+        return map[y][x]
     }
 
     getSmellDir(map, x, y) {
