@@ -1,6 +1,7 @@
 class SmellMap {
 
     constructor() {
+        this._ghost = true
         this.reset()
     }
 
