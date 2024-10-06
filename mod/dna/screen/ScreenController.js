@@ -2,12 +2,13 @@ class ScreenController {
 
     constructor(st) {
         extend(this, {
-            name: 'screenController',
+            name: 'screen',
         }, st)
     }
 
     hideAll() {
-        this.__.screen._ls.forEach(screen => screen.hide())
+        lab.pond.hide()
+        lab.screen._ls.forEach(screen => screen.hide())
     }
 
     show(name) {
