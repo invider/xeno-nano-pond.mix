@@ -18,11 +18,11 @@ class SolidCircle {
     }
 
     collideWith(solid) {
-        const d2 = math.distanceSq(
+        const d = dist(
             this.gx(),  this.gy(),
             solid.gx(), solid.gy()
         )
-        return (d2 <= this.r2 + solid.r2)
+        return (d <= this.r + solid.r)
     }
 
     draw() {
