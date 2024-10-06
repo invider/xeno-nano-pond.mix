@@ -60,9 +60,8 @@ class Cell {
         else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
         if (this.y < R && this.dy < 0) this.dy *= -1
         else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
+        
     }
-
-
 
     draw() {
         save();
