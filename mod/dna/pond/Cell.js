@@ -83,7 +83,6 @@ let _id = 0
 class Cell {
 
     constructor(st) {
-        this.name = 'cell' + (++_id)
         this.dx = math.rnds() * (20 + 20 * rnd())
         this.dy = math.rnds() * (20 + 20 * rnd())
         this.targetDx = this.dx
@@ -105,6 +104,7 @@ class Cell {
             descriptor: math.rnde(cellTypes)
         }, st)
         this.team = this.descriptor.team
+        this.name = 'cell' + (++_id) + 't' + this.team
         this.descriptor.lifespan = this.descriptor.lifespan || 20
         this.hp = this.descriptor.baseHp || 100
         this.lifespan = this.descriptor.lifespan;
@@ -309,5 +309,9 @@ class Cell {
         }
 
         restore();
+    }
+
+    getStatus() {
+        return this.name
     }
 }

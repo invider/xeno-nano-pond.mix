@@ -2,11 +2,14 @@ class StatusBar {
 
     constructor(st) {
         extend(this, {
-            tag: '',
+            tag:   '',
+            color: hsl(.14, .6, .5),
+            background: '#000000A0',
+            gap:   4,
         }, st)
     }
 
-    show(tag) {
+    set(tag) {
         this.tag = tag
         if (this.tag) {
             this.lines = this.tag.split('\n')
@@ -15,17 +18,26 @@ class StatusBar {
         }
     }
 
-    draw(ctx, $) {
+    draw() {
         if (!this.tag) return
-        let y = $.fh
+        let y = ry(1)
 
-        for (let i = this.lines.length - 1; i >= 0; i--, y -= 10) {
+
+        const f = env.style.font.debug
+        const step = f.size + this.gap
+        const H = step * this.lines.length + this.gap
+
+        fill(this.background)
+        rect(0, ctx.height - H, ctx.width, H)
+
+        alignLeft()
+        baseBottom()
+        fill(this.color)
+        font(f.size + 'px ' + f.family)
+        for (let i = this.lines.length - 1; i >= 0; i--) {
             const line = this.lines[i]
-            ctx.font = env.style.font
-            ctx.fillStyle = $.pal.toRGBA(3)
-            ctx.textAlign = 'left'
-            ctx.textBaseline = 'bottom'
-            ctx.fillText(line, 0, y)
+            text(line, 0, y)
+            y -= step
         }
     }
 }

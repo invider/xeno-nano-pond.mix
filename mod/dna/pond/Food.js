@@ -100,4 +100,8 @@ class Food {
 
         restore();
     }
+
+    getStatus() {
+        return this.name
+    }
 }
