@@ -8,6 +8,11 @@ function mouseDown(e) {
 
         const gx = lab.pond.lx(sx),
               gy = lab.pond.ly(sy)
+              
+        if (!(gx < 0 || gx >= lab.pond.w || gy < 0 || gy >= lab.pond.h)) {
+            lab.pond.food.spawn( dna.pond.Food, {x: gx, y: gy})
+        }
+
         const smellDir = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, gx, gy)
         if (smellDir) {
             log(`smell dir: [${smellDir.dx}:${smellDir.dy}]`)
@@ -18,6 +23,7 @@ function mouseDown(e) {
         picked.forEach(node => {
             console.dir(node)
         })
+        
     }
 }
 
