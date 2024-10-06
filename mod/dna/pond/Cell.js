@@ -25,6 +25,42 @@ class Cell {
                         r: 25
                     }
                 ]
+            },
+            'orange': {
+                img: res.cell.orangy,
+                w: 512,
+                h: 276,
+                centers: [
+                    {
+                        x: 50,
+                        y: 50,
+                        r: 25
+                    }
+                ]
+            },
+            'swampy': {
+                img: res.cell.swampy,
+                w: 512,
+                h: 275,
+                centers: [
+                    {
+                        x: 50,
+                        y: 50,
+                        r: 25
+                    }
+                ]
+            },
+            'brownie': {
+                img: res.cell.brownie,
+                w: 512,
+                h: 494,
+                centers: [
+                    {
+                        x: 50,
+                        y: 50,
+                        r: 25
+                    }
+                ]
             }
         }
         
