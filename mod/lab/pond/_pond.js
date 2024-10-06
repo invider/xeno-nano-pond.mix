@@ -1,4 +1,5 @@
 const _pond = {
+    Z:    11,
     DNA:  'SlideCamera',
     name: 'pond',
     w:    2000,
@@ -19,5 +20,15 @@ const _pond = {
 
     lookAtCenter() {
         this.setTarget( rx(.5), ry(.5) )
+    },
+
+    onShow() {
+        log('showing pond')
+        lab.hud.show()
+    },
+
+    onHide() {
+        log('hiding pond')
+        lab.hud.hide()
     },
 }

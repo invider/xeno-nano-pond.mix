@@ -4,4 +4,5 @@ const flag = {
     showBars:   true,
     showMaps:   true,
     showName:   true,
+    ignoreFood: false,
 }
