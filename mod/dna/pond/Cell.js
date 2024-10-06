@@ -1,8 +1,6 @@
 const cellTypes = {
     'froggy': {
         img: res.cell.froggy,
-        w: 512,
-        h: 276,
         lifespan: 10,
         centers: [
             {
@@ -14,8 +12,6 @@ const cellTypes = {
     },
     'jelly': {
         img: res.cell.jelly,
-        w: 512,
-        h: 412,
         lifespan: 40,
         centers: [
             {
@@ -27,8 +23,6 @@ const cellTypes = {
     },
     'orange': {
         img: res.cell.orangy,
-        w: 512,
-        h: 276,
         lifespan: 20,
         centers: [
             {
@@ -40,8 +34,6 @@ const cellTypes = {
     },
     'swampy': {
         img: res.cell.swampy,
-        w: 512,
-        h: 275,
         lifespan: 15,
         centers: [
             {
@@ -53,8 +45,6 @@ const cellTypes = {
     },
     'brownie': {
         img: res.cell.brownie,
-        w: 512,
-        h: 494,
         lifespan: 30,
         centers: [
             {
@@ -93,7 +83,7 @@ class Cell {
         this.lifespan = this.descriptor.lifespan;
         this.baseHp = this.baseHp || this.hp;
         this.hpThreshold = 1.2;
-        this.aspectRate = this.descriptor.w / this.descriptor.h
+        this.aspectRate = this.descriptor.img.width / this.descriptor.img.height
         this.w = this.r * 2
         this.h = this.w / this.aspectRate
 
@@ -158,9 +148,16 @@ class Cell {
         this.rcCd -= dt;
         if (this.rcCd <= 0) {
             this.rcCd = this.receptorCooldown;
+            //let smell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y);
             let {dx, dy} = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, this.x, this.y);
-            this.targetDx = dx * (20 + 20 * rnd())
-            this.targetDy = dy * (20 + 20 * rnd())
+            if (this.dx != 0 || this.dy != 0) {
+                this.targetDx = dx * (20 + 20 * rnd())
+                this.targetDy = dy * (20 + 20 * rnd())    
+            }
+            if (this.targetDx == 0 && this.targetDy == 0) {
+                this.targetDx = math.rnds() * (20 + 20 * rnd())
+                this.targetDy = math.rnds() * (20 + 20 * rnd())
+            }
         }
 
         var dxDiff = this.targetDx - this.dx;
