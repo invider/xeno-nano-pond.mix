@@ -4,6 +4,7 @@ class Food {
     constructor(st) {
         this.name = 'food' + (++_id)
         extend(this, {
+            hp: 100,
             x: 0,
             y: 0,
             r: 3,

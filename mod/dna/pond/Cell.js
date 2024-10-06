@@ -121,7 +121,16 @@ class Cell {
     }
 
     hit(trg) {
-        log(`hit [${this.name}] <=> [${trg.name}]`)
+        if (trg instanceof dna.pond.Food) {
+            this.eat(trg)
+        }
+    }
+
+    eat(food) {
+        this.hp += food.hp
+        log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
+        kill(food)
+        lib.sfx('eat')
     }
 
     evo(dt) {
@@ -172,6 +181,7 @@ class Cell {
     }
 
     mitosis() {
+        log(`[${this.name}]: mitosis!!`)
         lab.pond.food.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dy, dy: this.dx, descriptor: this.descriptor, a: this.a + Math.PI})
         lab.pond.food.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dy, dy: this.dx, descriptor: this.descriptor, a: this.a - Math.PI})
         kill(this)

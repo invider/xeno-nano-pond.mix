@@ -15,6 +15,15 @@ module.exports = {
         vol: .3,
     },
 
+    eat: {
+        res: 'pop',
+        vol: .2,
+    },
+    pick: {
+        res: 'ui-switch',
+        vol: .25,
+    },
+
     // default option
     default: {
         res: 'chime',

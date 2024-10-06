@@ -1,7 +1,7 @@
 function mouseDown(e) {
     if (env.screen === 'pond') {
         log(`look at port::${e.pageX}:${e.pageY}`)
-        lib.sfx('pop')
+        lib.sfx('pick')
         lab.pond.setViewTarget(e.pageX, e.pageY)
 
         const lx = lab.pond.lx(e.pageX),
