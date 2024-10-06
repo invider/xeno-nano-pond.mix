@@ -124,7 +124,7 @@ class Cell {
     init() {}
 
     collideWith(trg) {
-        const threshold = 100;
+        const threshold = trg.w + this.w;
         if (!trg.solids) return
         if (Math.abs(trg.x - this.x) > threshold || Math.abs(trg.y - this.y) > threshold) return
         for (let i = 0; i < this.solids.length; i++) {
