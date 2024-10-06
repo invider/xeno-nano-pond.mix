@@ -81,7 +81,7 @@ function evo(dt) {
           case WAIT:
                   this.state = FADE_IN;
                   this.time = this.transition.fadein;
-                  if (this.transition.onFadein) this.transition.onFadein()
+                  if (this.transition.onFadeIn) this.transition.onFadeIn()
                   break;
           case FADE_IN:
                   this.state = KEEP;
@@ -91,7 +91,7 @@ function evo(dt) {
           case KEEP:
                   this.state = FADE_OUT;
                   this.time = this.transition.fadeout;
-                  if (this.transition.onFadeout) this.transition.onFadeout()
+                  if (this.transition.onFadeOut) this.transition.onFadeOut()
                   break;
           case FADE_OUT:
                   if (this.transition.onHidden) this.transition.onHidden()

@@ -20,7 +20,7 @@ module.exports = function(name, vol, pan) {
     if (config.vol) vol *= config.vol
     if (!clip) {
         clip = container['default']
-        log.warn(`missing resource for [${name}], using default tone`)
+        log.warn(`missing resource for [${name}], using default placeholder`)
     }
 
     //log(`plaing [${name}]`)

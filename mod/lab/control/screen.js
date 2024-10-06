@@ -41,7 +41,7 @@ function transitTo(name, st) {
         keep:    0.5,
         fadeout: 2,
 
-        onFadeout: function() {
+        onFadeOut: function() {
             switchTo(name)
             if (this.next) this.next()
         }
