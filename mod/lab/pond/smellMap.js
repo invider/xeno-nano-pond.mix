@@ -1,5 +1,10 @@
 class SmellMap {
+
     constructor() {
+        this.reset()
+    }
+
+    reset() {
         this.granularity = 50;
         this.foodMap = []
         this.threatMap = []
@@ -12,8 +17,12 @@ class SmellMap {
         this.mapH = this.sceneH / this.granularity;
     }
 
-    evo(dt) {
+    fill() {
         this.foodMap = this._buildMap(lab.pond.food, this.foodMap);
+    }
+
+    evo(dt) {
+        this.fill()
     }
 
     _buildMap(obj, map){
