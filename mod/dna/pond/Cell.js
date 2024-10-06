@@ -58,8 +58,8 @@ const cellTypes = {
         lifespan: 30,
         centers: [
             {
-                x: 50,
-                y: 50,
+                x: 0,
+                y: 0,
                 r: 25
             }
         ]
