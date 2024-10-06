@@ -148,9 +148,16 @@ class Cell {
         this.rcCd -= dt;
         if (this.rcCd <= 0) {
             this.rcCd = this.receptorCooldown;
+            //let smell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y);
             let {dx, dy} = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, this.x, this.y);
-            this.targetDx = dx * (20 + 20 * rnd())
-            this.targetDy = dy * (20 + 20 * rnd())
+            if (this.dx != 0 || this.dy != 0) {
+                this.targetDx = dx * (20 + 20 * rnd())
+                this.targetDy = dy * (20 + 20 * rnd())    
+            }
+            if (this.targetDx == 0 && this.targetDy == 0) {
+                this.targetDx = math.rnds() * (20 + 20 * rnd())
+                this.targetDy = math.rnds() * (20 + 20 * rnd())
+            }
         }
 
         var dxDiff = this.targetDx - this.dx;
