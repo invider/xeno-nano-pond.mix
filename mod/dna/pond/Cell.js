@@ -70,6 +70,14 @@ const cellTypes = {
         ]
     }
 }
+function getMaxHp() {
+    let maxHp = 0;
+    for (let k in cellTypes) {
+        maxHp = Math.max(cellTypes[k].baseHp, maxHp);
+    }
+    return maxHp
+}
+const maxHp = getMaxHp();
 
 let _id = 0
 class Cell {
@@ -271,7 +279,7 @@ class Cell {
             // hp bar
             lineWidth(2)
             stroke('#ff0000')
-            var lifespanWidth = this.w * this.hp / this.descriptor.baseHp
+            var lifespanWidth = this.w * this.hp / maxHp
             line(- halfW, - halfH, - halfW + lifespanWidth, - halfH)
 
             // hp bar
