@@ -9,7 +9,7 @@ const cellTypes = {
             {
                 x: 0,
                 y: 0,
-                r: 25
+                r: 16
             }
         ]
     },
@@ -23,7 +23,7 @@ const cellTypes = {
             {
                 x: 0,
                 y: 0,
-                r: 25
+                r: 16
             }
         ]
     },
@@ -37,7 +37,7 @@ const cellTypes = {
             {
                 x: 0,
                 y: 0,
-                r: 25
+                r: 16
             }
         ]
     },
@@ -51,7 +51,7 @@ const cellTypes = {
             {
                 x: 0,
                 y: 0,
-                r: 25
+                r: 16
             }
         ]
     },
@@ -65,7 +65,7 @@ const cellTypes = {
             {
                 x: 0,
                 y: 0,
-                r: 25
+                r: 16
             }
         ]
     }
