@@ -73,6 +73,7 @@ class Cell {
             x: 0,
             y: 0,
             r: 20,
+            hp: 100,
             receptorCooldown: 0.5,
             rcCd: Math.random() * 3,
             a: 0,
@@ -83,6 +84,8 @@ class Cell {
         }, st)
         this.descriptor.lifespan = this.descriptor.lifespan || 20
         this.lifespan = this.descriptor.lifespan;
+        this.baseHp = this.baseHp || this.hp;
+        this.hpThreshold = 1.2;
         this.aspectRate = this.descriptor.w / this.descriptor.h
         this.w = this.r * 2
         this.h = this.w / this.aspectRate
@@ -141,7 +144,9 @@ class Cell {
     }
 
     mitosis() {
-        
+        lab.pond.food.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dy, dy: this.dx, descriptor: this.descriptor })
+        lab.pond.food.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dy, dy: this.dx, descriptor: this.descriptor })
+        kill(this)
     }
 
     onKill() {
