@@ -155,7 +155,7 @@ class Cell {
             this.rcCd = this.receptorCooldown;
             //let smell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y);
             let {dx, dy} = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, this.x, this.y);
-            if (this.dx != 0 || this.dy != 0) {
+            if (dx != 0 || dy != 0) {
                 this.targetDx = dx * (20 + 20 * rnd())
                 this.targetDy = dy * (20 + 20 * rnd())    
             }
