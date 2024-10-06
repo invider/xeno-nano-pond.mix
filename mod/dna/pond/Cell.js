@@ -2,6 +2,7 @@ const cellTypes = {
     'froggy': {
         img: res.cell.froggy,
         lifespan: 10,
+        baseHp: 200,
         team: 1,
         cellType: 'froggy',
         centers: [
@@ -16,6 +17,7 @@ const cellTypes = {
         img: res.cell.jelly,
         lifespan: 40,
         team: 2,
+        baseHp: 60,
         cellType: 'jelly',
         centers: [
             {
@@ -28,6 +30,7 @@ const cellTypes = {
     'orange': {
         img: res.cell.orangy,
         lifespan: 20,
+        baseHp: 80,
         cellType: 'orange',
         team: 3,
         centers: [
@@ -41,6 +44,7 @@ const cellTypes = {
     'swampy': {
         img: res.cell.swampy,
         lifespan: 15,
+        baseHp: 150,
         cellType: 'swampy',
         team: 4,
         centers: [
@@ -54,6 +58,7 @@ const cellTypes = {
     'brownie': {
         img: res.cell.brownie,
         lifespan: 30,
+        baseHp: 100,
         team: 5,
         cellType: 'brownie',
         centers: [
@@ -80,7 +85,7 @@ class Cell {
             x: 0,
             y: 0,
             r: 20,
-            hp: 100,
+            hp: 0,
             receptorCooldown: 0.5,
             rcCd: Math.random() * 3,
             a: 0,
@@ -92,8 +97,8 @@ class Cell {
         }, st)
         this.team = this.descriptor.team
         this.descriptor.lifespan = this.descriptor.lifespan || 20
+        this.hp = this.descriptor.baseHp || 100
         this.lifespan = this.descriptor.lifespan;
-        this.baseHp = this.baseHp || this.hp;
         this.hpThreshold = 1.2;
         this.aspectRate = this.descriptor.img.width / this.descriptor.img.height
         this.w = this.r * 2
@@ -200,7 +205,7 @@ class Cell {
             this._spawnFood();
         }
         // this.hp += 1 * dt;
-        if (this.hp > this.baseHp * this.hpThreshold) {
+        if (this.hp > this.descriptor.baseHp * this.hpThreshold) {
             this.mitosis()
         }
         if (this.hp <= 0) {
@@ -266,7 +271,7 @@ class Cell {
             // hp bar
             lineWidth(2)
             stroke('#ff0000')
-            var lifespanWidth = this.w * this.hp / this.baseHp
+            var lifespanWidth = this.w * this.hp / this.descriptor.baseHp
             line(- halfW, - halfH, - halfW + lifespanWidth, - halfH)
 
             // hp bar
