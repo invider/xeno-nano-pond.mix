@@ -8,15 +8,15 @@ function pond() {
 
     for (let i = 0; i < 20; i++) {
         lab.pond.spawn( dna.pond.Cell, {
-            x: rnd() * env.pW,
-            y: rnd() * env.pH,
+            x: rnd() * lab.pond.w,
+            y: rnd() * lab.pond.h,
         })
     }
 
     for (let i = 0; i < 20; i++) {
         lab.pond.food.spawn( dna.pond.Food, {
-            x: rnd() * env.pW,
-            y: rnd() * env.pH,
+            x: rnd() * lab.pond.w,
+            y: rnd() * lab.pond.h,
         })
     }
 }

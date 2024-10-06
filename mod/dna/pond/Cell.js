@@ -124,7 +124,7 @@ class Cell {
     eat(food) {
         this.hp += food.hp
         log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
-        log(lib.util.normXY(this.x, this.y) + ' <=> ' + lib.util.normXY(food.x, food.y))
+        //log(lib.util.normXY(this.x, this.y) + ' <=> ' + lib.util.normXY(food.x, food.y))
         kill(food)
         lib.sfx('eat')
     }

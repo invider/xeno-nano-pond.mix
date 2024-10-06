@@ -22,7 +22,7 @@ class SolidCircle {
             this.gx(),  this.gy(),
             solid.gx(), solid.gy()
         )
-        return (d2 <= this.r + solid.r)
+        return (d2 <= this.r2 + solid.r2)
     }
 
     draw() {
