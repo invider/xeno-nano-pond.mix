@@ -74,7 +74,7 @@ class Cell {
             foodSmell = 1
         } 
         let color = Math.floor(foodSmell * 255)
-        stroke('#' + color.toString(16) + 'FFFF')
+        stroke('#' + color.toString(16).padStart(2, '0') + '1111')
         //stroke('#40A0CE')
         circle(0, 0, this.r)
         restore();
