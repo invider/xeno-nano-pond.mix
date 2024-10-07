@@ -9,8 +9,8 @@ class SmellMap {
         this.granularity = 50;
         this.foodMap = []
         this._initMap(this.foodMap)
-        this.threatMap = []
-        this._initMap(this.threatMap)
+        // this.threatMap = []
+        // this._initMap(this.threatMap)
         this.smellFading = 0.3;
         this.smellRadius = 3;
         this.sceneW = lab.pond.w;
