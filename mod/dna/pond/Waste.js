@@ -1,20 +1,11 @@
 let _id = 0
 const foodTypes = {
     'orangy': {
-        imgs: [res.cell.orangyLeft, res.cell.orangyRight]
+        imgs: [res.cell.orangyLeftWaste]
     },
     'jelly': {
-        imgs: [res.cell.jellyLeft, res.cell.jellyRight]
+        imgs: [res.cell.jellyLeftWaste]
     },
-    // 'froggy': {
-    //     imgs: [res.cell.froggyLeft, res.cell.froggyRight]
-    // },
-    'swampy': {
-        imgs: [res.cell.swampyLeft, res.cell.swampyRight, res.cell.swampyUp, res.cell.swampyDown]
-    },
-    'purple': {
-        imgs: [res.cell.purpleLeft, res.cell.purpleRight]
-    }
 }
 class Waste {
 
