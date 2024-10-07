@@ -34,8 +34,11 @@ function calcStat() {
         foodHP += f.hp
     })
 
-    lab.hud.info.set('cells', '' + cells)
-    lab.hud.info.set('food', `${food}`)
+    let waste = lab.pond.waste._ls.length
+
+    lab.hud.info.set('cells', `${cells}`)
+    lab.hud.info.set('food',  `${food}`)
+    lab.hud.info.set('waste', `${waste}`)
     lab.hud.info.set('biomass', `${hp + foodHP}`)
     teams.forEach(team => {
         if (team.cells > 0 || lab.hud.info.isSet(team.name)) {
