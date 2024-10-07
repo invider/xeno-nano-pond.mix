@@ -40,11 +40,15 @@ function calcStat() {
     lab.hud.info.set('food',  `${food}`)
     lab.hud.info.set('waste', `${waste}`)
     lab.hud.info.set('biomass', `${hp + foodHP}`)
+
+    let aliveTeams = 0
     teams.forEach(team => {
         if (team.cells > 0 || lab.hud.info.isSet(team.name)) {
             lab.hud.info.set(team.name, '' + team.cells + '/' + team.hp, team.icon)
         }
+        if (team.cells > 0) aliveTeams ++
     })
+    if (aliveTeams === 1) trap('gameOver')
 }
 
 function evo(dt) {
