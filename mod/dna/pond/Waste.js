@@ -89,7 +89,7 @@ class Waste {
             baseBottom()
             alignCenter()
             fill('#ffffff')
-            font('12px pixel-operator-8')
+            font(env.style.font.dump.head)
             text(this.name, 0, -this.r)
         }
 

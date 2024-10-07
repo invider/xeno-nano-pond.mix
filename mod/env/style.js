@@ -4,16 +4,35 @@ const style = {
 
     font: {
         main: {
-            family: 'pixel-operator-8',
+            family: 'futura-handwritten',
             size: 16,
         },
         menu: {
-            family: 'upheavtt',
+            family: 'futura-handwritten',
             size: 48,
         },
+        title: {
+            family: 'bakso-sapi',
+            //family: 'asteristico',
+            //family: 'cakecafe',
+            size: 48,
+        },
+        dump: {
+            family: 'futura-handwritten',
+            size: 12,
+        },
         debug: {
-            family: 'pixel-operator-8',
+            family: 'futura-handwritten',
             size: 20,
         },
     }
-}
+};
+
+(function classifyFonts() {
+    // classify fonts
+    for (let id in style.font) {
+        const font = style.font[id]
+        font.id = id
+        font.head = font.size + 'px ' + font.family
+    }
+})()

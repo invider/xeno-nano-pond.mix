@@ -188,7 +188,7 @@ class SmellMap {
         baseMiddle()
         alignCenter()
         fill('#ffffff')
-        font('8px pixel-operator-8')
+        font(env.style.font.dump.head)
         text('' + round(smellValue * 100)/100, x * G + .5*G, y * G + .5*G)
     }
 }
