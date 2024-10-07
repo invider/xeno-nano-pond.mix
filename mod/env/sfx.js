@@ -49,6 +49,10 @@ module.exports = {
         vol: .8,
     },
 
+    gameOver: {
+        res: 'default',
+        vol: 1,
+    },
 
     // try out
     bubbles: {
@@ -59,7 +63,7 @@ module.exports = {
 
     // default option
     default: {
-        res: 'chime',
+        res: 'default',
         vol: .7,
     },
 }

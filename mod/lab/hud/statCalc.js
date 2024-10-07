@@ -48,7 +48,13 @@ function calcStat() {
         }
         if (team.cells > 0) aliveTeams ++
     })
-    if (aliveTeams === 1) trap('gameOver')
+
+    teams.sort((a, b) => b.cells - a.cells)
+    env.lead = teams[0]
+
+    if (!env.gameOver && aliveTeams === 1) {
+        trap('gameOver')
+    }
 }
 
 function evo(dt) {

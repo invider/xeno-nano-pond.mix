@@ -29,6 +29,12 @@ const style = {
             //family: 'cakecafe',
             size: 48,
         },
+        subTitle: {
+            family: 'bakso-sapi',
+            //family: 'asteristico',
+            //family: 'cakecafe',
+            size: 28,
+        },
         credits: {
             family: 'bakso-sapi',
             //family: 'asteristico',
