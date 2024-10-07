@@ -2,6 +2,7 @@ const _pond = {
     Z:    11,
     DNA:  'SlideCamera',
     name: 'pond',
+    time: 0,
     w:    2000,
     h:    2000,
     minScale:        0.25,
@@ -13,6 +14,12 @@ const _pond = {
     speed:      ctx.width * .5,
     slideSpeed: ctx.width * .9,
     relativeEdge: .05,
+
+    resetGame: function() {
+        this.time = 0
+        this.jumpAtCenter()
+        this.smellMap.reset()
+    },
 
     setTarget: function(x, y) {
         this.target = { x, y }
@@ -99,6 +106,12 @@ const _pond = {
     },
 
     evo: function(dt) {
+        this.time += dt
+        if (!env.creditsRoll && this.time > env.tune.creditsRollTime) {
+            trap('creditsRoll')
+            env.creditsRoll = true
+        }
+
         this._ls.forEach( e => {
             if (e.evo && !e.dead && !e.paused) e.evo(dt)
         })

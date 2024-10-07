@@ -79,7 +79,7 @@ class Cell {
         this.hp += food.heal
         //log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
         kill(food)
-        lib.sfx('eat')
+        //lib.sfx('eat')
     }
 
     evo(dt) {

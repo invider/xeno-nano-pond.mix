@@ -8,7 +8,7 @@ const style = {
         status:     '#d2c9a5',
         statusBack: '#392945DE',
 
-        credits:       '#49343d',
+        credits:       '#71627d',
         creditsShadow: '#000000',
         creditsBack:   '#ab9b8e',
     },
@@ -29,9 +29,10 @@ const style = {
             size: 48,
         },
         credits: {
-            family: 'asteristico',
+            family: 'bakso-sapi',
+            //family: 'asteristico',
             //family: 'cakecafe',
-            size: 48,
+            size: 32,
         },
         info: {
             family: 'futura-handwritten',

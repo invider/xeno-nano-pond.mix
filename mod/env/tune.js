@@ -1,3 +1,3 @@
 const tune = {
-    teams: 5,
+    creditsRollTime: 60,
 }

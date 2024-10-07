@@ -5,7 +5,7 @@ let timer = 0
 function calcStat() {
 
     const teams = []
-    for (let i = 1; i <= env.tune.teams; i++) {
+    for (let i = 1; i <= env.opt.teams; i++) {
         teams[i] = {
             id:    i,
             name:  'colony ' + i,

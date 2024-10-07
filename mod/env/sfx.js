@@ -25,13 +25,15 @@ module.exports = {
     },
 
     born: {
-        res: 'bubble',
+        res: 'pop',
+        //res: 'bubble',
         vol: .25,
     },
 
     death: {
-        res: '16736__kijjaz__bubbles_01',
-        vol: 1,
+        res: 'bubble',
+        //res: '16736__kijjaz__bubbles_01',
+        vol: .4,
     },
 
 
