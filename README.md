@@ -1,4 +1,4 @@
-# nano-pond.mix
+# Xeno Nano Pond
 Ludum Dare 56 Entry
 
 ## How to Debug
