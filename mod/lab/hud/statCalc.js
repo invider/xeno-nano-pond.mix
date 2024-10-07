@@ -1,6 +1,6 @@
-const FQ = 2
+const FQ = 1
 
-let timer = FQ
+let timer = 0
 
 function calcStat() {
 
