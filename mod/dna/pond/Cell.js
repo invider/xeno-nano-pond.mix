@@ -45,9 +45,10 @@ class Cell {
     init() {}
 
     collideWith(trg) {
-        const threshold = trg.w + this.w;
         if (!trg.solids) return
-        if (Math.abs(trg.x - this.x) > threshold || Math.abs(trg.y - this.y) > threshold) return
+        const xThreshold = trg.w + this.w;
+        const yThreshold = trg.h + this.h;
+        if (Math.abs(trg.x - this.x) > xThreshold || Math.abs(trg.y - this.y) > yThreshold) return
         for (let i = 0; i < this.solids.length; i++) {
             const mySolid = this.solids[i]
             for (let j = 0; j < trg.solids.length; j++) {
