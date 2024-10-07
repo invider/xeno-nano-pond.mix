@@ -60,7 +60,7 @@ class Cell {
     }
 
     hit(trg) {
-        if (trg instanceof dna.pond.Food) {
+        if ((trg instanceof dna.pond.Food) || (trg instanceof dna.pond.Waste)) {
             this.eat(trg)
         } else if (trg instanceof dna.pond.Cell) {
             if (this.team !== trg.team) {
@@ -111,12 +111,22 @@ class Cell {
         this.rcCd -= dt;
         if (this.rcCd <= 0) {
             this.rcCd = this.receptorCooldown;
-            //let smell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y);
+            let smell = lab.pond.smellMap.getSmell(lab.pond.smellMap.foodMap, this.x, this.y);
+            let wasteSmell = lab.pond.smellMap.getSmell(lab.pond.smellMap.wasteMap, this.x, this.y);
             let {dx, dy} = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, this.x, this.y);
-            if (dx != 0 || dy != 0) {
-                this.targetDx = dx * (20 + 20 * rnd())
-                this.targetDy = dy * (20 + 20 * rnd())    
+            let {dx:wDx, dy:wDy} = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.wasteMap, this.x, this.y);
+            if (smell > wasteSmell){
+                if (dx != 0 || dy != 0) {
+                    this.targetDx = dx * (20 + 20 * rnd())
+                    this.targetDy = dy * (20 + 20 * rnd())    
+                }
+            } else {
+                if (wDx != 0 || wDy != 0) {
+                    this.targetDx = - wDx * (20 + 20 * rnd())
+                    this.targetDy = - wDy * (20 + 20 * rnd())    
+                }
             }
+            
             if (this.targetDx == 0 && this.targetDy == 0) {
                 this.targetDx = math.rnds() * (20 + 20 * rnd())
                 this.targetDy = math.rnds() * (20 + 20 * rnd())

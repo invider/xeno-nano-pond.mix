@@ -8,7 +8,9 @@ class SmellMap {
     reset() {
         this.granularity = 50;
         this.foodMap = []
+        this.wasteMap = []
         this._initMap(this.foodMap)
+        this._initMap(this.wasteMap)
         // this.threatMap = []
         // this._initMap(this.threatMap)
         this.smellFading = 0.3;
@@ -22,6 +24,7 @@ class SmellMap {
 
     fill() {
         this.foodMap = this._buildMap(lab.pond.food, this.foodMap);
+        this.wasteMap = this._buildMap(lab.pond.waste, this.wasteMap);
     }
 
     evo(dt) {
@@ -165,18 +168,28 @@ class SmellMap {
             for (let x = 0; x < this.mapW; x++) {
                 const G = this.granularity
                 const foodVal = this.foodMap[y][x]
-                const color = limit(Math.floor(foodVal * 100), 0, 100)
-                const R = color.toString(16).padStart(2, '0')
-                fill(`#${R}2020`)
-                rect(x * G, y * G, G, G)
-
-                baseMiddle()
-                alignCenter()
-                fill('#ffffff')
-                font('8px pixel-operator-8')
-                text('' + round(foodVal * 100)/100, x * G + .5*G, y * G + .5*G)
+                const wasteVal = this.wasteMap[y][x]
+                //if (foodVal === 0 && wasteVal === 0) continue;
+                if (foodVal > wasteVal){
+                    this.drawSmell(x, y, foodVal, "#*2020");
+                } else {
+                    this.drawSmell(x, y, wasteVal, "#00*00");
+                }
             }
         }
+    }
+    drawSmell(x, y, smellValue, colorTpl) {
+        const G = this.granularity
+        const color = limit(Math.floor(smellValue * 100), 0, 100)
+        const R = color.toString(16).padStart(2, '0')
+        //fill(`#${R}2020`)
+        fill(colorTpl.split('*').join(R))
+        rect(x * G, y * G, G, G)
+        baseMiddle()
+        alignCenter()
+        fill('#ffffff')
+        font('8px pixel-operator-8')
+        text('' + round(smellValue * 100)/100, x * G + .5*G, y * G + .5*G)
     }
 }
 
