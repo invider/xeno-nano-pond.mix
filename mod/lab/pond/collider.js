@@ -11,17 +11,17 @@ function evo(dt) {
             if (i === j) continue
             const trg = ls[j]
             if (trg._ghost || trg.dead) continue
-
             if (trg._ls) {
                 const ls2 = trg._ls
                 for (let k = 0; k < ls2.length; k++) {
                     const subTarget = ls2[k]
-                    if (subTarget._ghost || subTarget.dead) continue
+                    if (!lib.colliderUtil.shouldCollide(src, subTarget)) continue
                     if (src.collideWith(subTarget)) {
                         src.hit(subTarget)
                     }
                 }
             } else {
+                if (!lib.colliderUtil.shouldCollide(src, trg)) continue
                 if (src.collideWith(trg)) {
                     src.hit(trg)
                 }
