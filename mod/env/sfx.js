@@ -20,9 +20,27 @@ module.exports = {
         vol: .2,
     },
     pick: {
-        res: 'ui-switch',
+        res: '16737__kijjaz__bubbles_02',
+        vol: .75,
+    },
+
+    born: {
+        res: '104943__glaneur-de-sons__bubble_4',
         vol: .25,
     },
+
+    death: {
+        res: '16736__kijjaz__bubbles_01',
+        vol: .25,
+    },
+
+
+    // try out
+    bubbles: {
+        res: '16736__kijjaz__bubbles_01',
+        vol: .5,
+    },
+    
 
     // default option
     default: {

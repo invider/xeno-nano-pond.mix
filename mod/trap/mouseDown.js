@@ -5,21 +5,18 @@ function mouseDown(e) {
         const gx = lab.pond.lx(sx),
               gy = lab.pond.ly(sy)
         log(`at port::${lib.util.normXY(sx, sy)} -> pond::${lib.util.normXY(gx, gy)}`)
-              
-        if (!(gx < 0 || gx >= lab.pond.w || gy < 0 || gy >= lab.pond.h)) {
-            lab.pond.food.spawn( dna.pond.Food, {x: gx, y: gy})
-            lib.sfx('pick')
-        }
 
-        const smellDir = lab.pond.smellMap.getSmellDir(lab.pond.smellMap.foodMap, gx, gy)
-        if (smellDir) {
-            log(`smell dir: [${smellDir.dx}:${smellDir.dy}]`)
-        }
-
+        // pick objects
         const picked = []
         const node = lab.pond.pick(sx, sy, picked)
         picked.forEach(node => {
             console.dir(node)
         })
+              
+        // spawn food
+        if (!(gx < 0 || gx >= lab.pond.w || gy < 0 || gy >= lab.pond.h)) {
+            lab.pond.food.spawn( dna.pond.Food, {x: gx, y: gy})
+            lib.sfx('pick')
+        }
     }
 }

@@ -149,6 +149,7 @@ class Cell {
         if (this.hp <= 0) {
             kill(this)
             this._spawnFood();
+            lib.sfx('death')
         }
     }
 
@@ -175,6 +176,7 @@ class Cell {
         lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx + 1, dy: this.dy + 1, descriptor: this.descriptor, a: this.a})
         lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx - 1, dy: this.dy - 1, descriptor: this.descriptor, a: this.a})
         kill(this)
+        lib.sfx('born')
     }
 
     onKill() {
