@@ -36,6 +36,10 @@ class DebugInfo {
         })
     }
 
+    isSet(key) {
+        return !!(this.keys[key])
+    }
+
     reset() {
         this.keys = {}
     }
