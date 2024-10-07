@@ -26,7 +26,8 @@ module.exports = {
         vol: .75,
     },
     seedWaste: {
-        res: 'poison-burp-glitch',
+        res: '488392__wobesound__poisongasrelease',
+        //res: 'poison-burp-glitch',
         vol: .25,
     },
 
