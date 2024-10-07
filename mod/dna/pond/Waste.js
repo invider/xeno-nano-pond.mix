@@ -27,6 +27,7 @@ class Waste {
         }
         extend(this, {
             hp: 100,
+            heal: -100,
             x: 0,
             y: 0,
             r: 10,
@@ -37,6 +38,7 @@ class Waste {
             descriptor: descriptor
         }, st)
         this.hp = this.descriptor.hp || 100;
+        this.heal = this.descriptor.heal || 100;
         this.img = this.descriptor.imgs[0];
         this.aspectRate = this.img.width / this.img.height
         this.w = this.r * 2

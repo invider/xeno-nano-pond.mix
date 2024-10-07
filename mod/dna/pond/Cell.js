@@ -1,5 +1,5 @@
 let _id = 0
-
+let _wastePossibility = 0.2;
 class Cell {
 
     constructor(st) {
@@ -79,7 +79,7 @@ class Cell {
     }
 
     eat(food) {
-        this.hp += food.hp
+        this.hp += food.heal
         //log(`[${this.name}]: eating food [${food.name}/${food.hp}] HP^: ${this.hp}`)
         kill(food)
         lib.sfx('eat')
@@ -156,7 +156,11 @@ class Cell {
     }
 
     _spawnFood() {
-        lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y, cellType: this.descriptor.cellType})
+        if (rnd() < _wastePossibility){
+            lab.pond.waste.spawn( dna.pond.Waste, {x: this.x, y: this.y, cellType: this.descriptor.cellType})
+        } else {
+            lab.pond.food.spawn( dna.pond.Food, {x: this.x, y: this.y, cellType: this.descriptor.cellType})
+        }
     }
 
     _normalizeD(d){
@@ -170,6 +174,7 @@ class Cell {
     }
 
     mitosis() {
+        
         lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx + 1, dy: this.dy + 1, descriptor: this.descriptor, a: this.a})
         lab.pond.spawn( dna.pond.Cell, {x: this.x, y: this.y, dx: this.dx - 1, dy: this.dy - 1, descriptor: this.descriptor, a: this.a})
         kill(this)
