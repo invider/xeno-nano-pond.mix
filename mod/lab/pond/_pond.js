@@ -7,11 +7,11 @@ const _pond = {
     minScale:        0.25,
     maxScale:        5,
     zoomSpeed:       1.2,
-    zoomScrollSpeed: 1.8,
+    zoomScrollSpeed: 1.6,
     zoomOnPlusMinus: true,
 
     speed:      ctx.width * .5,
-    slideSpeed: ctx.width * .75,
+    slideSpeed: ctx.width * .9,
     relativeEdge: .05,
 
     setTarget: function(x, y) {
