@@ -17,7 +17,7 @@ class Splash {
     }
 
     init(e) {
-        this.__.captureControl(this)
+        //this.__.captureControl(this)
     }
 
     evo(dt) {

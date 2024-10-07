@@ -45,7 +45,7 @@ class RollingText extends Splash {
             const tx = this.ix + this.iw * this.rx
             const ty = this.iy + this.ih * this.ry
 
-            this.__.rollLayer.spawn( dna.hud.FloatingText, {
+            this.__.spawn( dna.hud.FloatingText, {
                 x:            tx,
                 y:            ty,
                 dx:           0,

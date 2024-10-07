@@ -7,6 +7,10 @@ const style = {
         title:      '#49343d',
         status:     '#d2c9a5',
         statusBack: '#392945DE',
+
+        credits:       '#49343d',
+        creditsShadow: '#000000',
+        creditsBack:   '#ab9b8e',
     },
 
     font: {
@@ -21,6 +25,11 @@ const style = {
         title: {
             family: 'bakso-sapi',
             //family: 'asteristico',
+            //family: 'cakecafe',
+            size: 48,
+        },
+        credits: {
+            family: 'asteristico',
             //family: 'cakecafe',
             size: 48,
         },
