@@ -4,8 +4,12 @@ const _pond = {
     name: 'pond',
     w:    2000,
     h:    2000,
-    speed: ctx.width * .25,
+    speed: ctx.width * .5,
+    slideSpeed: ctx.width * .5,
+    zoomScrollSpeed: 1.1,
+
     zoomOnPlusMinus: true,
+    relativeEdge: .05,
 
     setTarget: function(x, y) {
         this.target = { x, y }
@@ -18,17 +22,50 @@ const _pond = {
         }
     },
 
-    lookAtCenter() {
+    lookAtCenter: function() {
         this.setTarget( rx(.5), ry(.5) )
     },
 
-    onShow() {
+    onShow: function() {
         log('showing pond')
         lab.hud.show()
     },
 
-    onHide() {
+    onHide: function() {
         log('hiding pond')
         lab.hud.hide()
     },
+
+    selfTarget: function() {
+        if (this.target) return
+        this.target = {
+            x: this.x,
+            y: this.y,
+        }
+    },
+
+    slideLeft: function(dt) {
+        this.x -= (this.slideSpeed * dt) / this.scale
+    },
+
+    slideRight: function(dt) {
+        this.x += (this.slideSpeed * dt) / this.scale
+    },
+
+    slideUp: function(dt) {
+        this.y -= (this.slideSpeed * dt) / this.scale
+    },
+
+    slideDown: function(dt) {
+        this.y += (this.slideSpeed * dt) / this.scale
+    },
+
+    zoomIn: function(dt) {
+        this.scale /= this.zoomScrollSpeed
+    },
+
+    zoomOut: function(dt) {
+        this.scale *= this.zoomScrollSpeed
+    },
+
 }
