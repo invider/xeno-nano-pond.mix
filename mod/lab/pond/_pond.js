@@ -44,13 +44,13 @@ const _pond = {
     },
     
     onShow: function() {
-        log('showing pond')
+        lab.background = env.style.color.outside
         lab.hud.show()
     },
 
     onHide: function() {
-        log('hiding pond')
         lab.hud.hide()
+        lab.background = env.style.color.background
     },
 
     selfTarget: function() {

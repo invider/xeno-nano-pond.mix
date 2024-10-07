@@ -1,3 +1,4 @@
 function draw(){
-    image(res.cell.froggy, rx(0.5) - 50, ry(0.7) - 50, 100, 100)
+    const W = ry(.15)
+    image(res.cell.froggy, rx(0.5) - .5*W, ry(0.7) - .5*W, W, W)
 }

@@ -2,6 +2,10 @@
 # collider run artifacts
 .meta.cache
 
+# collider dist output
+*.out
+dist
+
 
 # MacOS
 .DS_Store
