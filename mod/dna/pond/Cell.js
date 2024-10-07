@@ -24,7 +24,7 @@ class Cell {
             descriptor: math.rnde(dna.pond.cellConfig.cellTypes)
         }, st)
         this.team = this.descriptor.team
-        this.name = 'cell' + (++_id) + 't' + this.team
+        this.name = 'cell' + (++_id) + '@' + this.team
         this.descriptor.lifespan = this.descriptor.lifespan || 20
         this.hp = this.descriptor.baseHp || 100
         this.lifespan = this.descriptor.lifespan;

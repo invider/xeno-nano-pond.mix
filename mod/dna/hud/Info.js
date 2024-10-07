@@ -1,11 +1,9 @@
 /*
- * Debug information node.
- *
- * Set env.debug = true to enable
+ * Information node.
  */
 
 const df = {
-    name:       'debugInfo',
+    name:       'info',
     color:      '#ffffff',
     background: '#00000080',
     margin:     8,
@@ -13,7 +11,7 @@ const df = {
     ry:         0,
 }
 
-class DebugInfo {
+class Info {
 
     constructor(st) {
         extend(this, df, st)
@@ -45,13 +43,11 @@ class DebugInfo {
     }
 
     draw() {
-        if (!env.debug) return
-
         const keys = Object.keys(this.keys)
         const N = keys.length
         if (N === 0) return
 
-        const f = env.style.font.debug
+        const f = env.style.font.info
         const H = N * f.size + (N + 1) * this.margin
         const X = rx(this.rx)
         const Y = ry(this.ry)

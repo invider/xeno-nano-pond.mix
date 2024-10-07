@@ -24,13 +24,17 @@ const style = {
             //family: 'cakecafe',
             size: 48,
         },
+        info: {
+            family: 'futura-handwritten',
+            size: 24,
+        },
         dump: {
             family: 'futura-handwritten',
             size: 12,
         },
         debug: {
             family: 'futura-handwritten',
-            size: 20,
+            size: 24,
         },
     }
 };

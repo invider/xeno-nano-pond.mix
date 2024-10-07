@@ -8,7 +8,7 @@ function calcStat() {
     for (let i = 1; i <= env.tune.teams; i++) {
         teams[i] = {
             id:    i,
-            name:  'team' + i,
+            name:  'colony ' + i,
             cells: 0,
             hp:    0,
             icon:  env.teams[i]? env.teams[i].img : null,
@@ -34,12 +34,12 @@ function calcStat() {
         foodHP += f.hp
     })
 
-    lab.hud.debugInfo.set('cells', '' + cells)
-    lab.hud.debugInfo.set('hp', `${hp}/${hp + foodHP}`)
-    lab.hud.debugInfo.set('food', `${food}/${foodHP}`)
+    lab.hud.info.set('cells', '' + cells)
+    lab.hud.info.set('hp', `${hp}/${hp + foodHP}`)
+    lab.hud.info.set('food', `${food}/${foodHP}`)
     teams.forEach(team => {
-        if (team.cells > 0 || lab.hud.debugInfo.isSet(team.name)) {
-            lab.hud.debugInfo.set(team.name, '' + team.cells + '/' + team.hp, team.icon)
+        if (team.cells > 0 || lab.hud.info.isSet(team.name)) {
+            lab.hud.info.set(team.name, '' + team.cells + '/' + team.hp, team.icon)
         }
     })
 }
