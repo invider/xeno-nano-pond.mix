@@ -21,6 +21,10 @@ const _pond = {
         this.smellMap.reset()
     },
 
+    resetTarget: function() {
+        this.target = null
+    },
+
     setTarget: function(x, y) {
         this.target = { x, y }
     },
@@ -78,21 +82,25 @@ const _pond = {
     },
 
     slideLeft: function(dt) {
+        this.resetTarget()
         if (!this.spaceLeft()) return
         this.x -= (this.slideSpeed * dt) / this.scale
     },
 
     slideRight: function(dt) {
+        this.resetTarget()
         if (!this.spaceRight()) return
         this.x += (this.slideSpeed * dt) / this.scale
     },
 
     slideUp: function(dt) {
+        this.resetTarget()
         if (!this.spaceUp()) return
         this.y -= (this.slideSpeed * dt) / this.scale
     },
 
     slideDown: function(dt) {
+        this.resetTarget()
         if (!this.spaceDown()) return
         this.y += (this.slideSpeed * dt) / this.scale
     },

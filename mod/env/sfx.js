@@ -25,9 +25,9 @@ module.exports = {
         res: '16737__kijjaz__bubbles_02',
         vol: .75,
     },
-    seedFood: {
-        res: '16737__kijjaz__bubbles_02',
-        vol: .75,
+    seedWaste: {
+        res: 'poison-burp-glitch',
+        vol: .25,
     },
 
     born: {
