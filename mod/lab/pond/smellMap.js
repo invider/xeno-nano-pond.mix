@@ -171,25 +171,28 @@ class SmellMap {
                 const wasteVal = this.wasteMap[y][x]
                 //if (foodVal === 0 && wasteVal === 0) continue;
                 if (foodVal > wasteVal){
-                    this.drawSmell(x, y, foodVal, "#*2020");
+                    this.drawSmell(x, y, foodVal, "#FF0000");
                 } else {
-                    this.drawSmell(x, y, wasteVal, "#00*00");
+                    this.drawSmell(x, y, wasteVal, "#00FF00");
                 }
             }
         }
     }
-    drawSmell(x, y, smellValue, colorTpl) {
+    drawSmell(x, y, smellValue, baseColor) {
+        if (smellValue === 0) return
         const G = this.granularity
-        const color = limit(Math.floor(smellValue * 100), 0, 100)
-        const R = color.toString(16).padStart(2, '0')
-        //fill(`#${R}2020`)
-        fill(colorTpl.split('*').join(R))
+        const ismell = limit(Math.floor(smellValue * 100), 0, 100)
+        const intensity = ismell.toString(16).padStart(2, '0')
+        fill(baseColor + intensity)
         rect(x * G, y * G, G, G)
-        baseMiddle()
-        alignCenter()
-        fill('#ffffff')
-        font(env.style.font.dump.head)
-        text('' + round(smellValue * 100)/100, x * G + .5*G, y * G + .5*G)
+
+        if (env.flag.showSmellValue) {
+            baseMiddle()
+            alignCenter()
+            fill('#000000')
+            font(env.style.font.dump.head)
+            text('' + round(smellValue * 100)/100, x * G + .5*G, y * G + .5*G)
+        }
     }
 }
 

@@ -19,9 +19,11 @@ const _pond = {
     },
 
     setViewTarget: function(vx, vy) {
+        let lx = limit(this.lx(vx), 0, this.w),
+            ly = limit(this.ly(vy), 0, this.h)
         this.target = {
-            x: this.lx(vx),
-            y: this.ly(vy),
+            x: lx,
+            y: ly,
         }
     },
 

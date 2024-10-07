@@ -2,6 +2,11 @@ const DNA = 'hud/StatusBar'
 
 const name = 'status'
 
+function init() {
+    this.color = env.style.color.status
+    this.background = env.style.color.statusBack
+}
+
 function evo(dt) {
     if (env.screen !== 'pond') return
 

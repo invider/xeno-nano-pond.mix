@@ -6,8 +6,8 @@
 
 const df = {
     name:       'debugInfo',
-    color:      hsl(.14, .6, .5),
-    background: '#000000A0',
+    color:      '#ffffff',
+    background: '#00000080',
     margin:     8,
     rx:         0,
     ry:         0,

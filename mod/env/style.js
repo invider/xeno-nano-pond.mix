@@ -1,6 +1,13 @@
 const style = {
     //background: hsl(.04, .05, .2),
-    background: hsl(.04, .05, .1),
+    //background: hsl(.04, .05, .1),
+
+    color: {
+        background: '#ab9b8e',
+        title:      '#49343d',
+        status:     '#d2c9a5',
+        statusBack: '#392945DE',
+    },
 
     font: {
         main: {

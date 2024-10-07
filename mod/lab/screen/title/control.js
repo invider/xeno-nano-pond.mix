@@ -1,5 +1,5 @@
 function launchCountdown() {
-    this.timer = 1
+    this.timer = 3
 }
 
 function evo(dt) {

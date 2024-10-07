@@ -19,7 +19,7 @@ class StatusBar {
     }
 
     draw() {
-        if (!this.tag) return
+        if (!env.debug || !this.tag) return
         let y = ry(1)
 
 
