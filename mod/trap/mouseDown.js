@@ -19,11 +19,11 @@ function mouseDown(e) {
             switch(e.button) {
                 case 0:
                     lab.pond.food.spawn( dna.pond.Food, {x: gx, y: gy})
-                    lib.sfx('pick')
+                    lib.sfx('seedFood')
                     break
                 case 2:
-                    lab.pond.food.spawn( dna.pond.Waste, {x: gx, y: gy})
-                    lib.sfx('pick')
+                    lab.pond.waste.spawn( dna.pond.Waste, {x: gx, y: gy})
+                    lib.sfx('seedWaste')
                     break
             }
         }

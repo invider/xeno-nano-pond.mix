@@ -15,11 +15,17 @@ module.exports = {
         vol: .3,
     },
 
+    /*
     eat: {
         res: 'pop',
         vol: .2,
     },
-    pick: {
+    */
+    seedFood: {
+        res: '16737__kijjaz__bubbles_02',
+        vol: .75,
+    },
+    seedFood: {
         res: '16737__kijjaz__bubbles_02',
         vol: .75,
     },
@@ -34,6 +40,12 @@ module.exports = {
         res: 'bubble',
         //res: '16736__kijjaz__bubbles_01',
         vol: .4,
+    },
+
+    // UI
+    uswitch: {
+        res: 'ui-switch',
+        vol: .8,
     },
 
 
