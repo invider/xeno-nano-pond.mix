@@ -35,8 +35,8 @@ function calcStat() {
     })
 
     lab.hud.info.set('cells', '' + cells)
-    lab.hud.info.set('hp', `${hp}/${hp + foodHP}`)
-    lab.hud.info.set('food', `${food}/${foodHP}`)
+    lab.hud.info.set('food', `${food}`)
+    lab.hud.info.set('biomass', `${hp + foodHP}`)
     teams.forEach(team => {
         if (team.cells > 0 || lab.hud.info.isSet(team.name)) {
             lab.hud.info.set(team.name, '' + team.cells + '/' + team.hp, team.icon)
