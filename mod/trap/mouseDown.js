@@ -16,8 +16,16 @@ function mouseDown(e) {
               
         // spawn food
         if (!(gx < 0 || gx >= lab.pond.w || gy < 0 || gy >= lab.pond.h)) {
-            lab.pond.food.spawn( dna.pond.Food, {x: gx, y: gy})
-            lib.sfx('pick')
+            switch(e.button) {
+                case 0:
+                    lab.pond.food.spawn( dna.pond.Food, {x: gx, y: gy})
+                    lib.sfx('pick')
+                    break
+                case 2:
+                    lab.pond.food.spawn( dna.pond.Waste, {x: gx, y: gy})
+                    lib.sfx('pick')
+                    break
+            }
         }
     }
 }

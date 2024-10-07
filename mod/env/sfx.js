@@ -25,13 +25,13 @@ module.exports = {
     },
 
     born: {
-        res: '104943__glaneur-de-sons__bubble_4',
+        res: 'bubble',
         vol: .25,
     },
 
     death: {
         res: '16736__kijjaz__bubbles_01',
-        vol: .25,
+        vol: 1,
     },
 
 
