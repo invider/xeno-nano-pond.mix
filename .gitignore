@@ -2,3 +2,7 @@
 # collider run artifacts
 .meta.cache
 
+
+# MacOS
+.DS_Store
+
