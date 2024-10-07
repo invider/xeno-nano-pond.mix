@@ -30,6 +30,7 @@ class Waste {
             heal: -100,
             x: 0,
             y: 0,
+            lifespan: 30,
             r: 10,
             dr: 0.1,
             a: math.rndfi(),
@@ -72,7 +73,8 @@ class Waste {
         else if (this.x > ctx.width-R && this.dx > 0) this.dx *= -1
         if (this.y < R && this.dy < 0) this.dy *= -1
         else if (this.y > ctx.height-R && this.dy > 0) this.dy *= -1
-        
+        this.lifespan -= dt
+        if (this.lifespan <= 0) kill(this)
     }
 
     draw() {
