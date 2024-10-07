@@ -49,14 +49,24 @@ class SmellMap {
     }
 
     _forEachCellInRadius(map, cx, cy, radius, callback){
-        for (let y = 0; y < this.mapH; y++) {
-            for (let x = 0; x < this.mapW; x++) {
+        let [x0, y0, x1, y1] = this._adaptRadiusCoords(cx, cy, radius);
+        for (let y = y0; y < y1; y++) {
+            for (let x = x0; x < x1; x++) {
                 let dist = Math.sqrt((x - cx) * (x - cx) + (y - cy) * (y - cy));
                 if (dist <= radius) {
                     callback(x, y, dist);
                 }
             }
         }
+    }
+    
+    _adaptRadiusCoords(x, y, r){
+        return [
+            Math.max(x - r, 0),
+            Math.max(y - r, 0),
+            Math.min(x + r, this.mapW),
+            Math.min(y + r, this.mapH)
+        ]
     }
 
     getSmell(map, x, y){
