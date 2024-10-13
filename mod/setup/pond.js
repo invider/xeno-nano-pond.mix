@@ -8,7 +8,7 @@ function pond() {
     //lab.pond.smellMap.reset()
     // 380 begins to throttle
     // 120 default
-    for (let i = 0; i < 780; i++) {
+    for (let i = 0; i < 1780; i++) {
         lab.pond.spawn( dna.pond.Cell, {
             x: rnd() * lab.pond.w,
             y: rnd() * lab.pond.h,
