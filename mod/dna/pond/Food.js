@@ -52,6 +52,7 @@ class Food {
                 r: this.r,
             })
         ]
+        lab.pond.collider.registerObject(this);
     }
 
     init() {
@@ -105,5 +106,9 @@ class Food {
 
     getStatus() {
         return this.name
+    }
+
+    onKill() {
+        // lab.pond.collider.unegisterObject(this);
     }
 }

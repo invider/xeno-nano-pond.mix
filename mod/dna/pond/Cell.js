@@ -40,12 +40,13 @@ class Cell {
             solid.__ = cell
             solids.push(solid)
         })
+        lab.pond.collider.registerObject(this);
     }
 
     init() {}
 
     collideWith(trg) {
-        if (!lib.colliderUtil.shouldCollide(this, trg)) return false
+        // if (!lib.colliderUtil.shouldCollide(this, trg)) return false
         for (let i = 0; i < this.solids.length; i++) {
             const mySolid = this.solids[i]
             for (let j = 0; j < trg.solids.length; j++) {
@@ -181,6 +182,7 @@ class Cell {
 
     onKill() {
         //lab.pond.food.spawn( dna.pond.Food)
+        // lab.pond.collider.unregisterObject(this);
     }
 
     draw() {

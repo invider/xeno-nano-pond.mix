@@ -44,6 +44,7 @@ class Waste {
                 r: this.r,
             })
         ]
+        lab.pond.collider.registerObject(this);
     }
 
     init() {
@@ -98,5 +99,8 @@ class Waste {
 
     getStatus() {
         return this.name
+    }
+    onKill() {
+        // lab.pond.collider.unregisterObject(this);
     }
 }
