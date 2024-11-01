@@ -2,8 +2,11 @@ const FQ = 1
 
 let timer = 0
 
-function calcStat() {
+function init() {
+    env.globalTime = 0
+}
 
+function calcStat() {
     const teams = []
     for (let i = 1; i <= env.opt.teams; i++) {
         teams[i] = {
@@ -58,6 +61,7 @@ function calcStat() {
 }
 
 function evo(dt) {
+    env.globalTime += dt
     timer -= dt
     if (timer < 0) {
         this.calcStat()
