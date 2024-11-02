@@ -1,6 +1,7 @@
 function init() {
     // name MUST be removed to avoid augmentation collision
     delete this.name
+    delete this.init
 }
 
 function hide() {

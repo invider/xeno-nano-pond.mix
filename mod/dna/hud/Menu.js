@@ -1,3 +1,9 @@
+/* Menu Component
+ *
+ * The core defining structure is the items property.
+ * It defines all menu items and corresponding actions.
+ *
+ */
 const df = {
     x: 0,
     y: 0,
@@ -73,7 +79,7 @@ class Menu {
         this.hidden = true
         this.paused = true
         this.disabled = true
-        lab.control.controller.restoreAll()
+        //lab.control.controller.restoreAll()
         if (this.trap.onHide) this.trap.onHide()
     }
 

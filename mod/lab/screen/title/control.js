@@ -13,6 +13,11 @@ function evo(dt) {
 }
 
 function next() {
+    if (env.config.menu) {
+        trap('menu')
+        return
+    }
+
     lab.control.screen.transitTo('pond', {
         next: function() {
             //log('fading out from pond')
