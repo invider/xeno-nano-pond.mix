@@ -24,7 +24,7 @@ class Waste {
             lifespan: 30,
             r: 10,
             dr: 0.1,
-            a: math.rndfi(),
+            a: math.rnda(),
             dx:5 * math.rnds(),
             dy:5 * math.rnds(),
             descriptor: descriptor

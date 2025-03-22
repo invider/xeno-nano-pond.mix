@@ -18,7 +18,7 @@ class SolidCircle {
     }
 
     collideWith(solid) {
-        const d = dist(
+        const d = distance(
             this.gx(),  this.gy(),
             solid.gx(), solid.gy()
         )
