@@ -1,10 +1,12 @@
 const df = {
     name:         'label',
     text:         'default',
-    textColor:    '#ffffff',
-    font:         '24px pixel-operator-8',
-    textAlign:    'center',
-    textBaseline: 'middle',
+    color:        '#ffffff',
+    font:         '24px pixel-operator',
+    align:        'center',
+    baseline:     'middle',
+    x:             0,
+    y:             0,
     rx:           .5,
     ry:           .5,
     shadowDx:      5,
@@ -20,19 +22,21 @@ class Label {
     draw() {
         save()
 
-        ctx.textBaseline = this.textBaseline
-        ctx.textAlign = this.textAlign
+        ctx.textAlign = this.align
+        ctx.textBaseline = this.baseline
         font(this.font)
 
-        const tx = rx(this.rx)
-        const ty = ry(this.ry)
+        const tx = isNumber(this.rx)? rx(this.rx) : this.x
+        const ty = isNumber(this.ry)? ry(this.ry) : this.y
+
+        const txt = isFun(this.text)? this.text() : this.text
 
         if (this.shadowColor) {
             fill(this.shadowColor)
-            text(this.text, tx+this.shadowDx, ty+this.shadowDy)
+            text(txt, tx+this.shadowDx, ty+this.shadowDy)
         }
-        fill(this.textColor)
-        text(this.text, tx, ty)
+        fill(this.color)
+        text(txt, tx, ty)
 
         restore()
     }

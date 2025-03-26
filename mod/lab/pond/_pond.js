@@ -30,8 +30,8 @@ const _pond = {
     },
 
     setViewTarget: function(vx, vy) {
-        let lx = limit(this.lx(vx), 0, this.w),
-            ly = limit(this.ly(vy), 0, this.h)
+        let lx = clamp(this.lx(vx), 0, this.w),
+            ly = clamp(this.ly(vy), 0, this.h)
         this.target = {
             x: lx,
             y: ly,

@@ -1,7 +1,7 @@
 const _gameOver = {
     name: 'gameOver',
 
-    onShow() {
+    onActivate() {
         this.winnerLabel.text = env.lead.name + ' wins!'
         lib.sfx('gameOver')
     }

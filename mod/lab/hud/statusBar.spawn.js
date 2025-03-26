@@ -12,7 +12,7 @@ function init() {
 }
 
 function evo(dt) {
-    if (env.screen !== 'pond') return
+    if (env.state !== 'pond') return
 
     const lines = []
     const picked = []

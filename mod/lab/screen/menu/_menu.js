@@ -1,9 +1,7 @@
-const name = 'menu'
+const _menu = {
+    DNA:  'hud/Menu',
+    name: 'menu',
+    warp:  false,
+}
 
-const DNA = 'hud/Menu'
 
-const items = [
-    'New Game',
-    'Options',
-    'Credits',
-]

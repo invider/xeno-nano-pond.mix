@@ -6,6 +6,7 @@ const style = {
         background: '#ab9b8e',
         outside:    '#847875',
         title:      '#49343d',
+        subTitle:   '#49343d',
         status:     '#d2c9a5',
         statusBack: '#392945DE',
 
@@ -22,6 +23,10 @@ const style = {
         menu: {
             family: 'futura-handwritten',
             size: 48,
+        },
+        menuHigh: {
+            family: 'futura-handwritten',
+            size: 52,
         },
         title: {
             family: 'bakso-sapi',

@@ -181,7 +181,7 @@ class SmellMap {
     drawSmell(x, y, smellValue, baseColor) {
         if (smellValue === 0) return
         const G = this.granularity
-        const ismell = limit(Math.floor(smellValue * 100), 0, 100)
+        const ismell = clamp(Math.floor(smellValue * 100), 0, 100)
         const intensity = ismell.toString(16).padStart(2, '0')
         fill(baseColor + intensity)
         rect(x * G, y * G, G, G)

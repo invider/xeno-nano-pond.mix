@@ -1,6 +1,6 @@
 function mouseDown(e) {
-    env.touched = true
-    if (env.screen === 'pond') {
+    //env.touched = true
+    if (env.state === 'pond') {
         const sx = e.pageX,
               sy = e.pageY
         const gx = lab.pond.lx(sx),
@@ -29,5 +29,12 @@ function mouseDown(e) {
                     break
             }
         }
+    }
+
+    // dispatch to the active state
+    const state = lab.control.state.leadNode()
+    if (state) {
+        if (isFun(state.mouseDown)) state.mouseDown(e)
+        if (state.trap && isFun(state.trap.mouseDown)) state.trap.mouseDown(e)
     }
 }

@@ -1,4 +1,5 @@
 function gameOver() {
+    env.gameStarted = true
     env.gameOver = true
-    lab.control.screen.transitTo('gameOver', {})
+    lab.control.state.transitTo('gameOver', {})
 }
