@@ -127,7 +127,7 @@ function group(name, states) {
 // auto-run by Collider.JAM at the mod setup to scan and include all states in /lab/state/*
 function setup() {
     const _ = this
-    lab.screen._ls.forEach(state => _.include(state))
+    lab.state._ls.forEach(state => _.include(state))
 }
 
 // checks if the provided state is active

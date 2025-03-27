@@ -28,4 +28,4 @@ const items = [
         },
     },
 ]
-
+items.title = env.label.TITLE

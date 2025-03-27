@@ -45,5 +45,5 @@ const options = [
         },
     },
 ]
-options.title = 'OPTIONS'
+options.title = env.label.OPTIONS
 options.preservePos = true

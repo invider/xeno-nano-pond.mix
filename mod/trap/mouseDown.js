@@ -1,5 +1,4 @@
 function mouseDown(e) {
-    //env.touched = true
     if (env.state === 'pond') {
         const sx = e.pageX,
               sy = e.pageY
