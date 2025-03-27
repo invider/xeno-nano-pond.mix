@@ -47,16 +47,6 @@ const _pond = {
         this.y = this.h * .5
     },
     
-    onShow: function() {
-        lab.background = env.style.color.outside
-        lab.hud.show()
-    },
-
-    onHide: function() {
-        lab.hud.hide()
-        lab.background = env.style.color.background
-    },
-
     selfTarget: function() {
         if (this.target) return
         this.target = {

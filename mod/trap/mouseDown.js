@@ -1,4 +1,5 @@
 function mouseDown(e) {
+    /*
     if (env.state === 'pond') {
         const sx = e.pageX,
               sy = e.pageY
@@ -29,6 +30,7 @@ function mouseDown(e) {
             }
         }
     }
+    */
 
     // dispatch to the active state
     const state = lab.control.state.leadNode()

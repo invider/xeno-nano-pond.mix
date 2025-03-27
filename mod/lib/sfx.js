@@ -3,7 +3,7 @@
 // Sound effects are configured in /env/sfx
 //
 module.exports = function(name, vol, pan) {
-    if (env.opt.mute || !env._touched) return
+    if (env.opt.mute || !env.opt.sfx || !env._touched) return
 
     vol = vol || 1
     vol *= env.opt.sfxVolume

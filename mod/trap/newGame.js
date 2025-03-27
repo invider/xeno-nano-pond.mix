@@ -1,6 +1,4 @@
 function newGame() {
-    env.gameStarted = true
-    env.gameOver    = false
-    lab.pond.resetGame()
-    lib.sfx('pop')
+    log('=== New Game ===')
+    lab.pond.control.startNewGame()
 }

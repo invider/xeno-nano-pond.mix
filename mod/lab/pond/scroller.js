@@ -1,3 +1,4 @@
+const transient = true
 const _ghost = true
 
 function evo(dt) {

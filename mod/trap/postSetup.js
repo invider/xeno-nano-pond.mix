@@ -1,7 +1,7 @@
 function postSetup() {
     lab.control.state.deactivateAll()
 
-    if (env.config.pond) {
+    if (env.config['new']) {
         lab.control.state.transitTo('pond', {
             fadein:  0,
             keep:    0,

@@ -3,10 +3,10 @@ Ludum Dare 56 Entry
 
 ## How to Debug
 
-Run collider.jam with --debug and --pond flags:
+Run collider.jam with --debug and --new flags:
 
 ```
-jam -d --pond
+jam -d --new
 ```
 
 ## Debug Console

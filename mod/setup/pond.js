@@ -1,32 +1,14 @@
 function pond() {
     // all cells will live in a pond
     lab.pond.touch('food')
+    lab.pond.food.transient = true
     lab.pond.touch('waste')
+    lab.pond.waste.transient = true
 
     //lab.pond.w = 600
     //lab.pond.h = 600
     //lab.pond.smellMap.reset()
 
-    for (let i = 0; i < 120; i++) {
-        lab.pond.spawn( dna.pond.Cell, {
-            x: rnd() * lab.pond.w,
-            y: rnd() * lab.pond.h,
-        })
-    }
-
-    for (let i = 0; i < 20; i++) {
-        lab.pond.food.spawn( dna.pond.Food, {
-            x: rnd() * lab.pond.w,
-            y: rnd() * lab.pond.h,
-        })
-    }
-
-    for (let i = 0; i < 5; i++) {
-        lab.pond.waste.spawn( dna.pond.Waste, {
-            x: rnd() * lab.pond.w,
-            y: rnd() * lab.pond.h,
-        })
-    }
     // lab.pond.spawn( dna.pond.Cell, {
     //     x: 100,
     //     y: 100,

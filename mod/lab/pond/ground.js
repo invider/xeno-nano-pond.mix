@@ -1,3 +1,5 @@
+const transient = true
+
 function draw() {
     const pond = this.__
     fill(env.style.color.background)
