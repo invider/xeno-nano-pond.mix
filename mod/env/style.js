@@ -3,17 +3,22 @@ const style = {
     //background: hsl(.04, .05, .1),
 
     color: {
-        background: '#ab9b8e',
-        outside:    '#847875',
-        front:      '#49343d',
-        title:      '#49343d',
-        subTitle:   '#49343d',
-        status:     '#d2c9a5',
-        statusBack: '#392945DE',
+        background:  '#ab9b8e',
+        outside:     '#847875',
+        title:       '#49343d',
+        subTitle:    '#49343d',
+        status:      '#d2c9a5',
+        statusBack:  '#392945DE',
 
         credits:       '#71627d',
         creditsShadow: '#000000',
         creditsBack:   '#ab9b8e',
+
+        menu: {
+            main:        '#49343d',
+            deactivated: '#71627d',
+            selected:    '#e2d9frontb5',
+        }
     },
 
     font: {

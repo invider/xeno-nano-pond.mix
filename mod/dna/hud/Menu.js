@@ -99,7 +99,7 @@ class Menu extends sys.LabFrame {
             h: 40,
             step: 60,
             border: 2,
-            shadowShift: 6,
+            shadowShift: 3,
             IDLE_TIMEOUT: 20,
 
             OPTION_PREFIX: '< ',
@@ -126,10 +126,11 @@ class Menu extends sys.LabFrame {
     init() {
         if (this.trap) this.setTrap(this.trap)
         if (this.items) this.selectFrom(this.items)
+        this.syncTheme()
     }
 
     syncTheme() {
-        this.color = defaultColorTheme
+        this.color = augment({}, defaultColorTheme, env.style.color.menu)
     }
 
     adjust() {
