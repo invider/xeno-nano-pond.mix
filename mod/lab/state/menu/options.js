@@ -16,10 +16,10 @@ function syncOut(opt) {
 
 const options = [
     {
+        hidden:  true,
         section: true,
         title: 'music',
         onShow: function() {
-            log('syncing in MUSIC')
             syncIn(this.__.items)
         },
         onHide: function() {
@@ -27,6 +27,7 @@ const options = [
         },
     },
     {
+        hidden:  true,
         options: [ 'on', 'off' ],
     },
     {

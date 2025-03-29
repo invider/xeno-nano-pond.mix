@@ -35,6 +35,7 @@ function launchCountdown() {
 
 function next() {
     trap('menu')
+    lib.sfx('select')
 }
 
 function evo(dt) {

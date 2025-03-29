@@ -505,7 +505,7 @@ class Menu extends sys.LabFrame {
         const { x, y } = mouse
         for (let i = 0; i < this.zones.length; i++) {
             const zone = this.zones[i]
-            if (x >= zone.x1 && x <= zone.x2
+            if (zone && x >= zone.x1 && x <= zone.x2
                 && y >= zone.y1 && y <= zone.y2) return zone.id
         }
         return -1

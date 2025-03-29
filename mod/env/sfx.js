@@ -49,6 +49,25 @@ module.exports = {
         vol: .8,
     },
 
+    // Menu
+    highlight: {
+        res: 'pop',
+       vol: .3,
+    },
+    'switch': {
+        res: 'ui-switch',
+        vol: .8,
+    },
+    select: {
+        res: '16736__kijjaz__bubbles_01',
+        vol: 1,
+    },
+    next: {
+        res: '16736__kijjaz__bubbles_01',
+        vol: 1,
+    },
+
+
     gameOver: {
         res: 'default',
         vol: 1,
@@ -59,7 +78,6 @@ module.exports = {
         res: '16736__kijjaz__bubbles_01',
         vol: .5,
     },
-    
 
     // default option
     default: {

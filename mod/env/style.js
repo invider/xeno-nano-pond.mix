@@ -5,6 +5,7 @@ const style = {
     color: {
         background: '#ab9b8e',
         outside:    '#847875',
+        front:      '#49343d',
         title:      '#49343d',
         subTitle:   '#49343d',
         status:     '#d2c9a5',
